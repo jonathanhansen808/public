@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OMGBA Calendar</title>
-    <link rel="shortcut icon" href="images/logo.jpg" />
+    <link rel="shortcut icon" href="images/OMGBA logo.jpg" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
@@ -33,7 +33,7 @@
     <div class="modal" id="signup-modal">
         <div class="modal-background" id="signup-modalbg"></div>
         <div class="modal-content p-6 has-background-white">
-            <h1 class="is-size-3 title">Sign Up!</h1>
+            <h1 class="is-size-3 title">Coach Sign Up!</h1>
             <form id="signup_form">
                 <div class="field">
                     <label class="label">Email</label>
@@ -67,7 +67,7 @@
     <div class="modal" id="signin-modal">
         <div class="modal-background" id="signin-modalbg"></div>
         <div class="modal-content p-6 has-background-white">
-            <h1 class="is-size-3 title">Sign In!</h1>
+            <h1 class="is-size-3 title">Coach Sign In!</h1>
             <form id="signin_form">
                 <!-- Email -->
                 <div class="field">
@@ -103,7 +103,7 @@
         <nav class="navbar has-background-black" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="index.html">
-                    <img src="images/logo.jpg" width="60">
+                    <img src="images/OMGBA logo.jpg" width="60">
                 </a>
                 <!-- Why wont the burger show content of navbar? -->
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
@@ -116,24 +116,30 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item has-text-white" href="index.html">
+                    <!-- added in navigation things to go to main OMGBA website -->
+                    <a class="navbar-item has-text-white" href="https://www.omgba.net/page/show/8750-home">
                         Home
                     </a>
 
-                    <a class="navbar-item has-text-white" id="rankings">
-                        Rankings
+                    <a class="navbar-item has-text-white" id="scheduler">
+                        <!-- was rankings id so change to scheduler if needed -->
+                        Scheduler
                     </a>
-                    <a class="navbar-item has-text-white" id="about">
+                    <a class="navbar-item has-text-white"
+                        href="https://www.omgba.net/page/show/8760-contact-information" id="about">
                         About
+                    </a>
+                    <a class="navbar-item has-text-white" id="gyms">
+                        Gym Locations
                     </a>
                 </div>
 
                 <div class="navbar-end">
                     <div class="navbar-item">
-                        <a id="signupbtn" class="loggedout has-text-white">Sign Up</a>
+                        <a id="signupbtn" class="loggedout has-text-white"> Coach Sign Up</a>
                     </div>
                     <div class="navbar-item">
-                        <a id="signinbtn" class="loggedout has-text-white">Sign In</a>
+                        <a id="signinbtn" class="loggedout has-text-white"> Coach Sign In</a>
                     </div>
                     <div class="navbar-item">
                         <p id="welcome_user" class="loggedin has-text-white"></p>
@@ -290,11 +296,8 @@
                                 <p class="is-5">
                                     <a class="twitter-timeline" data-height="1000" <<<<<<< HEAD
                                         href="https://twitter.com/OMGBAHoops?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Eprofile%3AOMGBAHoops%7Ctwgr%5EeyJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2hvcml6b25fdHdlZXRfZW1iZWRfOTU1NSI6eyJidWNrZXQiOiJodGUiLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3NwYWNlX2NhcmQiOnsiYnVja2V0Ijoib2ZmIiwidmVyc2lvbiI6bnVsbH19&ref_url=https%3A%2F%2Fwww.omgba.net%2F">
-                                        Tweets
-                                        by MLB</a>
-                                    =======
-                                    href="https://twitter.com/OMGBAHoops">Tweets by OMGBA</a>
-                                    >>>>>>> bce5c4f0caf1ec704f7b6cf01979988b7a276d97
+                                    </a>
+
                                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
                                     </script>
                                 </p>
@@ -314,7 +317,7 @@
                     <div class="column has-background-primary-light">
                         <p class="has-background-danger-dark p-1 mt-5"></p>
                         <p class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-4">
-                            Sign In or Sign Up to Leave a Review of a Stadium
+                            Coach Sign-Up and Sign-In
                         </p>
                         <p class="has-background-danger-dark p-1 mb-5"></p>
 
