@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OMGBA Calendar</title>
-    <link rel="shortcut icon" href="images/logo.jpg" />
+    <link rel="shortcut icon" href="images/omgLogo.jpg" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
@@ -33,7 +33,7 @@
     <div class="modal" id="signup-modal">
         <div class="modal-background" id="signup-modalbg"></div>
         <div class="modal-content p-6 has-background-white">
-            <h1 class="is-size-3 title">Sign Up!</h1>
+            <h1 class="is-size-3 title">Coach Sign Up!</h1>
             <form id="signup_form">
                 <div class="field">
                     <label class="label">Email</label>
@@ -67,7 +67,7 @@
     <div class="modal" id="signin-modal">
         <div class="modal-background" id="signin-modalbg"></div>
         <div class="modal-content p-6 has-background-white">
-            <h1 class="is-size-3 title">Sign In!</h1>
+            <h1 class="is-size-3 title">Coach Sign In!</h1>
             <form id="signin_form">
                 <!-- Email -->
                 <div class="field">
@@ -103,7 +103,7 @@
         <nav class="navbar has-background-black" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="index.html">
-                    <img src="images/logo.jpg" width="60">
+                    <img src="images/omgLogo.jpg" width="60">
                 </a>
                 <!-- Why wont the burger show content of navbar? -->
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
@@ -116,24 +116,30 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item has-text-white" href="index.html">
+                    <!-- added in navigation things to go to main OMGBA website -->
+                    <a class="navbar-item has-text-white" href="https://www.omgba.net/page/show/8750-home">
                         Home
                     </a>
 
-                    <a class="navbar-item has-text-white" id="rankings">
-                        Rankings
+                    <a class="navbar-item has-text-white" id="scheduler">
+                        <!-- was rankings id so change to scheduler if needed -->
+                        Scheduler
                     </a>
-                    <a class="navbar-item has-text-white" id="about">
+                    <a class="navbar-item has-text-white"
+                        href="https://www.omgba.net/page/show/8760-contact-information" id="about">
                         About
+                    </a>
+                    <a class="navbar-item has-text-white" id="gyms">
+                        Gym Locations
                     </a>
                 </div>
 
                 <div class="navbar-end">
                     <div class="navbar-item">
-                        <a id="signupbtn" class="loggedout has-text-white">Sign Up</a>
+                        <a id="signupbtn" class="loggedout has-text-white"> Coach Sign Up</a>
                     </div>
                     <div class="navbar-item">
-                        <a id="signinbtn" class="loggedout has-text-white">Sign In</a>
+                        <a id="signinbtn" class="loggedout has-text-white"> Coach Sign In</a>
                     </div>
                     <div class="navbar-item">
                         <p id="welcome_user" class="loggedin has-text-white"></p>
@@ -206,79 +212,6 @@
                                 src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FChicago&showTitle=0&showTabs=1&src=am1oYW5zZW43QHdpc2MuZWR1&color=%23039BE5"
                                 style="border:solid 1px #777" width="800" height="600" frameborder="0"
                                 scrolling="no"></iframe>
-                            <!-- <div>
-                                <p class="has-background-danger-dark p-1 mb-5"></p>
-                                <p
-                                    class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-3 is-italic">
-                                    America's Pastime Reviews
-                                </p>
-                                <p class="has-background-danger-dark p-1 mb-5"></p>
-                                <p class="mb-5">
-                                    Hello from Jon and Peter! This website was created in the hopes of consolidating all
-                                    information about the MLB
-                                    stadiums, both in the American and National League. Information about any
-                                    stadium, including their events and ticket information can be found on any
-                                    individual
-                                    stadium's page.
-                                </p>
-
-                                <p>
-                                    Here, fans can rate their experiences at various stadiums to help other fans decide
-                                    whether
-                                    or not they want to attend an event happening at a certain stadium.
-                                    To see fan's reviews or leave your own review, please sign up using the link at the
-                                    top
-                                    right of the website.
-                                </p>
-                            </div> -->
-                            <!-- <div> -->
-                            <!-- Second div for "How to Navigate" Header -->
-                            <!-- <p class="mb-6"></p>
-                                <p class="has-background-danger-dark p-1 mt-5"></p>
-                                <p
-                                    class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-4">
-                                    How to Navigate
-                                </p>
-                                <p class="has-background-danger-dark p-1 mb-5"></p>
-                                <p>
-                                    At the top of the page you are able to browse MLB ballparks depedning on which
-                                    League they are in, whether that be the National League or the American League. When
-                                    you click on an individual stadium, you will be directed to a new page with all of
-                                    the
-                                    information
-                                    for that stadium.
-                                </p>
-
-                                <p class=mt-5>
-                                    You will also see a Rankings tab at the top. After a long review of
-                                    each stadium, we put together a rankings page based on a number of factors.
-                                    Some examples include the food, beer selection, stadium atmosphere, and more. Feel
-                                    free
-                                    to check out the our rankings, and if you have any different thoughts, write a
-                                    comment
-                                    in our
-                                    reviews page and let us know your rankings!
-                                    <p class=mt-5></p>
-                                    <p>To learn more about the creater's of America's Pastime Reviews, click on the
-                                        About
-                                        tab up top. There you will find information about us and attached will be our
-                                        contact information if you would like to get in touch to talk about baseball or
-                                        other sports. </p>
-                                </p>
-
-                                <p class="mt-5">
-                                    On the left we have each MLB team listed with more information about the team and
-                                    their
-                                    stadium. Click on your favorite team to check out their page and leave a comment
-                                    about
-                                    your experience!
-                                </p>
-
-                                <p class="mt-5">
-                                    Keep scrolling down for more content! Enjoy!
-                                </p>
-
-                            </div> -->
                         </div>
                     </div>
                     <!-- Twitter Feed Column -->
@@ -289,20 +222,16 @@
                             </div>
                             <div class="message-body p-2 mb-3">
                                 <p class="is-5">
-                                    <a class="twitter-timeline" data-height="1000" <<<<<<< HEAD
+                                    <a class="twitter-timeline" data-height="1000"
                                         href="https://twitter.com/OMGBAHoops?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Eprofile%3AOMGBAHoops%7Ctwgr%5EeyJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2hvcml6b25fdHdlZXRfZW1iZWRfOTU1NSI6eyJidWNrZXQiOiJodGUiLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3NwYWNlX2NhcmQiOnsiYnVja2V0Ijoib2ZmIiwidmVyc2lvbiI6bnVsbH19&ref_url=https%3A%2F%2Fwww.omgba.net%2F">
                                         Tweets
                                         by MLB</a>
-                                    =======
-                                    href="https://twitter.com/OMGBAHoops">Tweets by OMGBA</a>
-                                    >>>>>>> bce5c4f0caf1ec704f7b6cf01979988b7a276d97
                                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
                                     </script>
                                 </p>
                             </div>
                         </div>
                     </div> <!-- related content  -->
-
                 </div>
             </div>
         </div>
@@ -315,7 +244,7 @@
                     <div class="column has-background-primary-light">
                         <p class="has-background-danger-dark p-1 mt-5"></p>
                         <p class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-4">
-                            Sign In or Sign Up to Leave a Review of a Stadium
+                            Coach Sign-Up and Sign-In
                         </p>
                         <p class="has-background-danger-dark p-1 mb-5"></p>
 
@@ -375,22 +304,16 @@
                             <p class="has-background-danger-dark p-1 mt-5"></p>
                             <p
                                 class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-4">
-                                COVID-19 Update for 2021 MLB Season
+                                Potential Extra Section
                             </p>
                             <p class="has-background-danger-dark p-1 mb-5"></p>
-                            <p> There's good news for baseball fans this upcoming season. The MLB has announced that
-                                they will be allowing fans to attend baseball games with proper social distancing and
-                                COVID-19 protocols in place. Although fans will be allowed to attend games, the final
-                                decision is based upon each individual team and the policies are subject to change
-                                depending
-                                on the severity of COVID-19 in each location.</p>
+                            <p> Add content here</p>
                             <p class="mt-5">To read more about MLB's policies for the upcoming season as well as
-                                information
-                                about individual team's policies, click the link below.</p>
+                                Add content here</p>
                             <p class="mb-3">
                                 <a target="_blank"
-                                    href="https://www.cbssports.com/mlb/news/mlb-fans-return-in-2021-tracking-every-baseball-teams-attendance-plan-for-upcoming-season/">Information
-                                    for fans and the 2021 MLB season </a>
+                                    href="https://www.cbssports.com/mlb/news/mlb-fans-return-in-2021-tracking-every-baseball-teams-attendance-plan-for-upcoming-season/">
+                                    Add content here </a>
                             </p>
                         </div>
                     </div>
@@ -406,36 +329,23 @@
                             <p class="has-background-danger-dark p-1 mt-5"></p>
                             <p
                                 class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-4">
-                                Stadium News
+                                Add content here
                             </p>
                             <p class="has-background-danger-dark p-1 mb-5"></p>
-                            <p class="has-text-weight-bold has-text-centered mb-1">Busch Stadium</p>
+                            <p class="has-text-weight-bold has-text-centered mb-1">????</p>
                             <p class="mb-6">
-                                The St. Louis Cardinals recently renovated their Party Suites as part of a
-                                multi-million dollar
-                                project aimed at enhancing the experience for groups. A total of 21 Party Suites
-                                have be given an updated look. They have been updated to host groups of 32 or more
-                                and now feature a buffet and full-service bar.
+                                Add content here
                             </p>
 
-                            <p class="has-text-weight-bold has-text-centered mb-1">Fenway Park</p>
+                            <p class="has-text-weight-bold has-text-centered mb-1">??? </p>
                             <p class="mb-6">
-                                The Boston Red Sox are on track to add another round of renovations to MLB's oldest
-                                stadium. The updates include bleacher upgrades, a new function room, and a new
-                                5,000-seat theater in collaboration with Live Nation is planned at Lansdowne and
-                                Ipswich streets. They plan to finish these renovations before the start of the 2021
-                                opening.
+                                Add content here
                             </p>
 
-                            <p class="has-text-weight-bold has-text-centered mb-1">Dodger Stadium</p>
+                            <p class="has-text-weight-bold has-text-centered mb-1">???? </p>
                             <p class="mb-6">
-                                The Los Angeles Dodgers updated their stadium prior to the 2020 season to include a
-                                new center field plaza that features food and beverage areas, children's play area,
-                                and a space for live entertainment. The renovations also include a new outfield
-                                entryway, where the legendary Jackie Robinson statue will be on display, and much
-                                more.
+                                Add content here
                             </p>
-
                         </div>
                     </div>
                 </div>
@@ -458,7 +368,6 @@
     </div>
 
     <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 
@@ -484,7 +393,6 @@
         };
 
         // Initialize Firebase
-
 
 
         // Initialize Firebase
