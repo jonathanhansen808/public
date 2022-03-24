@@ -165,7 +165,7 @@
         <nav class="navbar has-background-black" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="index.html">
-                    <img src="images/omgLogo.jpg" width="60">
+                    <img src="images/newLogo.png" width="60">
                 </a>
                 <!-- Why wont the burger show content of navbar? -->
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
@@ -178,10 +178,18 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
+                    <div class="search-container">
+                        <form action="/action_page.php">
+                            <input type="text" placeholder="Search.." name="search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
                     <!-- added in navigation things to go to main OMGBA website -->
-                    <a class="navbar-item has-text-white" href="https://www.omgba.net/page/show/8750-home">
-                        Home
-                    </a>
+                    <div class="navbar-item">
+                        <a class="navbar-item has-text-white" href="https://www.omgba.net/page/show/8750-home">
+                            Home
+                        </a>
+                    </div>
 
                     <a class="navbar-item has-text-white" id="scheduler">
                         <!-- was rankings id so change to scheduler if needed -->
@@ -194,32 +202,26 @@
                     <a class="navbar-item has-text-white" id="gyms">
                         Gym Locations
                     </a>
-                    <div class="search-container">
-                        <form action="/action_page.php">
-                            <input type="text" placeholder="Search.." name="search">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div>
-
                 </div>
+            </div>
 
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <a id="signupbtn" class="loggedout has-text-white"> Coach Sign Up</a>
-                    </div>
-                    <div class="navbar-item">
-                        <a id="signinbtn" class="loggedout has-text-white"> Coach Sign In</a>
-                    </div>
-                    <div class="navbar-item">
-                        <a id="admin_signinbtn" class="loggedout has-text-white"> Admin Sign In</a>
-                    </div>
-                    <div class="navbar-item">
-                        <p id="welcome_user" class="loggedin has-text-white"></p>
-                    </div>
-                    <div class="navbar-item">
-                        <a id="signoutbtn" class="loggedin has-text-white">Sign Out</a>
-                    </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <a id="signupbtn" class="loggedout has-text-white"> Coach Sign Up</a>
                 </div>
+                <div class="navbar-item">
+                    <a id="signinbtn" class="loggedout has-text-white"> Coach Sign In</a>
+                </div>
+                <div class="navbar-item">
+                    <a id="admin_signinbtn" class="loggedout has-text-white"> Admin Sign In</a>
+                </div>
+                <div class="navbar-item">
+                    <p id="welcome_user" class="loggedin has-text-white"></p>
+                </div>
+                <div class="navbar-item">
+                    <a id="signoutbtn" class="loggedin has-text-white">Sign Out</a>
+                </div>
+            </div>
         </nav>
         <!-- section class and container class -->
         <div class="section">
@@ -227,10 +229,9 @@
                 <!-- default columns take whole size 213 -->
                 <div class="columns ">
                     <!-- site navigation column (left column)-->
-                    <div class="column has-background-primary-light is-2 ">
+                    <div class="column has-background-black is-2 has-text-white">
                         <aside class="menu">
-                            <p
-                                class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-6">
+                            <p class="menu-label has-text-centered  has-text-white has-text-weight-bold is-size-6">
 
                             </p>
                         </aside>
@@ -273,7 +274,7 @@
 
 
                     <!-- Main column (middle column) -->
-                    <div class="column has-background-primary-light ml-2" id="center">
+                    <div class="column has-background-black ml-2" id="center">
                         <!-- <p>Some text</p> -->
                         <!-- First div for "America's Pastime Reviews" Header -->
                         <div class="container" id="hidden_form">
@@ -287,9 +288,9 @@
                         </div>
                     </div>
                     <!-- Twitter Feed Column -->
-                    <div class="column is-3 ml-2 has-background-primary-light p-1">
+                    <div class="column is-3 ml-2 has-background-black p-1">
                         <div class="message">
-                            <div class="message-header has-text-centered ">
+                            <div class="message-header has-text-centered has-background-black">
                                 <p class="has-text-centered ">OMGBA News</p>
                             </div>
                             <div class="message-body p-2 mb-3">
@@ -313,7 +314,7 @@
                 <!-- default columns take whole size 213 -->
                 <div class="columns">
                     <!-- site navigation (left column)-->
-                    <div class="column has-background-primary-light">
+                    <div class="column has-background-black">
                         <p class="has-background-danger-dark p-1 mt-5"></p>
                         <p class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-4">
                             Coach Sign-Up and Sign-In
@@ -372,7 +373,7 @@
                     <!-- default columns take whole size 213 -->
                     <div class="columns">
                         <!-- site navigation (left column)-->
-                        <div class="column has-background-primary-light">
+                        <div class="column has-background-black">
                             <p class="has-background-danger-dark p-1 mt-5"></p>
                             <p
                                 class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-4">
@@ -396,7 +397,7 @@
                     <!-- default columns take whole size 213 -->
                     <div class="columns">
                         <!-- site navigation (left column)-->
-                        <div class="column has-background-primary-light">
+                        <div class="column has-background-black">
                             <p class="has-background-danger-dark p-1 mt-5"></p>
                             <p
                                 class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-4">
