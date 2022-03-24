@@ -89,6 +89,20 @@ signinModalBg.addEventListener('click', () => {
     signinModal.classList.remove('is-active');
 });
 
+// admin sign in IA
+let admin_signinbtn = document.querySelector('#admin_signinbtn');
+let admin_signinModal = document.querySelector('#admin_signin-modal');
+let admin_signinModalBg = document.querySelector('#admin_signin-modalbg');
+
+admin_signinbtn.addEventListener('click', () => {
+    admin_signinModal.classList.add('is-active');
+})
+
+admin_signinModalBg.addEventListener('click', () => {
+    admin_signinModal.classList.remove('is-active');
+});
+
+
 
 let about = document.querySelector("#about");
 about.addEventListener("click", (e) => {
