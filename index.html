@@ -19,6 +19,31 @@
             background-size: cover;
             background-color: #999;
         }
+        .navbar-menu input[type=text]{
+            float:left;
+            padding: 6px;
+            border: none;
+            margin-top: 10px;
+            margin-bottom: 8px;
+            margin-left: 16px;
+            font-size: 17px;
+            border: 1px solid black;
+        }
+        .navbar-menu .search-container button[type=submit] {
+            float: right;
+            padding: 6px 10px;
+            margin-left: 5px;
+            margin-top: 10px;
+            background: white;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .navbar-menu .search-container{
+            height: 15px;
+        }
+
     </style>
 </head>
 
@@ -167,6 +192,13 @@
                     <a class="navbar-item has-text-white" id="gyms">
                         Gym Locations
                     </a>
+                    <div class="search-container">
+                        <form action="/action_page.php">
+                          <input type="text" placeholder="Search.." name="search">
+                          <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                      </div>
+
                 </div>
 
                 <div class="navbar-end">
