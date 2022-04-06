@@ -4,11 +4,12 @@ let loggedinlinks = document.querySelectorAll(".loggedin");
 // content div
 let content = document.querySelector("#content");
 let review_content = document.querySelector('#review_content');
+
 function configureContent(user_) {
-    if(user_) {
+    if (user_) {
 
         db.collection("reviews").get().then((data) => {
-            let stadiums = data.docs; 
+            let stadiums = data.docs;
 
             let content = document.querySelector("#center");
             review_content.innerHTML = "";
@@ -39,7 +40,7 @@ function configureContent(user_) {
 
 function configureNav(user) {
     // check is user is passed and signed in
-    if(user) {
+    if (user) {
         document.querySelector("#welcome_user").innerHTML = `${auth.currentUser.email}`;
         // console.log(loggedoutlinks);
 
@@ -50,18 +51,17 @@ function configureNav(user) {
         // hide all the loggedout links
         loggedoutlinks.forEach((link) => {
             link.classList.add("is-hidden");
-        }) 
-    }
-        else {
-            document.querySelector("#welcome_user").innerHTML = "";
+        })
+    } else {
+        document.querySelector("#welcome_user").innerHTML = "";
 
-            loggedoutlinks.forEach((link) => {
-                link.classList.remove("is-hidden");
-            })
+        loggedoutlinks.forEach((link) => {
+            link.classList.remove("is-hidden");
+        })
 
-            loggedinlinks.forEach((link) => {
-                link.classList.add("is-hidden");
-            })
+        loggedinlinks.forEach((link) => {
+            link.classList.add("is-hidden");
+        })
     }
 }
 
@@ -69,11 +69,11 @@ let signupbtn = document.querySelector('#signupbtn');
 let signupModal = document.querySelector('#signup-modal');
 let signupModalBg = document.querySelector('#signup-modalbg');
 signupbtn.addEventListener('click', () => {
-  signupModal.classList.add('is-active');
+    signupModal.classList.add('is-active');
 });
 
 signupModalBg.addEventListener('click', () => {
-  signupModal.classList.remove('is-active');
+    signupModal.classList.remove('is-active');
 });
 
 
@@ -82,11 +82,11 @@ let signinModal = document.querySelector('#signin-modal');
 let signinModalBg = document.querySelector('#signin-modalbg');
 
 signinbtn.addEventListener('click', () => {
-  signinModal.classList.add('is-active');
+    signinModal.classList.add('is-active');
 })
 
 signinModalBg.addEventListener('click', () => {
-  signinModal.classList.remove('is-active');
+    signinModal.classList.remove('is-active');
 });
 
 
@@ -95,8 +95,8 @@ about.addEventListener("click", (e) => {
     e.preventDefault();
     let content = document.querySelector('#center');
 
-    html = 
-    `
+    html =
+        `
             <div>
                 <div>
                     <p class="has-background-danger-dark p-1 mb-5"></p>
@@ -158,27 +158,27 @@ about.addEventListener("click", (e) => {
 let signup_form = document.querySelector("#signup_form");
 
 signup_form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  console.log("form submitted");
+    e.preventDefault();
+    console.log("form submitted");
 
-  // grab the email and password 
+    // grab the email and password 
 
-  let email = document.querySelector("#email").value;
-  let password = document.querySelector("#password").value;
+    let email = document.querySelector("#email").value;
+    let password = document.querySelector("#password").value;
 
-  // pass firebase email pass word and sign them up
-  auth.createUserWithEmailAndPassword(email, password).then(() => {
-    console.log("user created successfully");
-    // close modal
-    signupModal.classList.remove("is-active");
+    // pass firebase email pass word and sign them up
+    auth.createUserWithEmailAndPassword(email, password).then(() => {
+            console.log("user created successfully");
+            // close modal
+            signupModal.classList.remove("is-active");
 
-    // reset form
-    signup_form.reset();
-  })
-  .catch((error) => {
-    let signup_error = document.querySelector("#signup_error");
-    signup_error.innerHTML = `<p>${error.message}</p>`;
-  });
+            // reset form
+            signup_form.reset();
+        })
+        .catch((error) => {
+            let signup_error = document.querySelector("#signup_error");
+            signup_error.innerHTML = `<p>${error.message}</p>`;
+        });
 })
 
 // sign users in 
@@ -191,25 +191,25 @@ signin_form.addEventListener("submit", (e) => {
     // grab the email and password from form
 
     let email = document.querySelector("#email_").value;
-    let password = document.querySelector("#password_").value; 
+    let password = document.querySelector("#password_").value;
     // console.log(email, password);
 
     auth.signInWithEmailAndPassword(email, password)
-    .then((userCredentials) => {
-        console.log(userCredentials);
-        // console.log(userCredentials.user.email + " with the uid " + userCredentials.user.uid + " is logged in!");
-        signinModal.classList.remove("is-active");
+        .then((userCredentials) => {
+            console.log(userCredentials);
+            // console.log(userCredentials.user.email + " with the uid " + userCredentials.user.uid + " is logged in!");
+            signinModal.classList.remove("is-active");
 
-        // reset form 
-        signin_form.reset();
+            // reset form 
+            signin_form.reset();
 
-    })
-    .catch((error) => {
-        let signin_error = document.querySelector("#signin_error");
-        signin_error.innerHTML = `<p>${error.message}</p>`;
-        // console.log(error.message);
+        })
+        .catch((error) => {
+            let signin_error = document.querySelector("#signin_error");
+            signin_error.innerHTML = `<p>${error.message}</p>`;
+            // console.log(error.message);
 
-    });
+        });
 })
 
 // sign out 
@@ -225,7 +225,7 @@ signoutbtn.addEventListener("click", (e) => {
 
 auth.onAuthStateChanged((user) => {
     // check if user is signed in or out 
-    if (user){
+    if (user) {
         console.log("user is now signed in ")
         configureNav(user);
         configureContent(user);
@@ -259,9 +259,9 @@ auth.onAuthStateChanged((user) => {
 //     <p> ${score} </p> <p> ${review} </p> 
 //     </div> `;
 //     //   document.getElementById("#stadium").innterHTML = "";
-    // document.getElementById('stadium').value='';
-    // document.getElementById('score').value='';
-    // document.getElementById('review').value='';
+// document.getElementById('stadium').value='';
+// document.getElementById('score').value='';
+// document.getElementById('review').value='';
 
 // })
 
@@ -283,36 +283,36 @@ post_comment.addEventListener("click", (e) => {
     task
         .then(snapshot => snapshot.ref.getDownloadURL())
         .then((url) => {
-        let comment_details = {
-            stadium_name: stadium,
-            stadium_score: score,
-            stadium_review: review,
-            email: auth.currentUser.email,
-            url: url
+            let comment_details = {
+                stadium_name: stadium,
+                stadium_score: score,
+                stadium_review: review,
+                email: auth.currentUser.email,
+                url: url
             }
-        
-            db.collection("reviews").add(comment_details).then((data) => {        
+
+            db.collection("reviews").add(comment_details).then((data) => {
                 console.log("review added");
             })
-            document.getElementById('stadium').value='';
-            document.getElementById('score').value='';
-            document.getElementById('review').value='';
-            document.getElementById("stadium_image").value="";
+            document.getElementById('stadium').value = '';
+            document.getElementById('score').value = '';
+            document.getElementById('review').value = '';
+            document.getElementById("stadium_image").value = "";
         })
 })
 
 // retrieve data from firebase 
 // db.collection("reviews").get().then((data) => {
-    // my data is an array
-    // let mydata = data.docs;
+// my data is an array
+// let mydata = data.docs;
 
-    // mydata.forEach((item) => {
-    //     console.log("the name of the stadium is", item.data().stadium_name);
-    //     console.log("the score of the stadium is", item.data().stadium_score);
-    //     console.log("the review of the stadium is", item.data().stadium_review);
+// mydata.forEach((item) => {
+//     console.log("the name of the stadium is", item.data().stadium_name);
+//     console.log("the score of the stadium is", item.data().stadium_score);
+//     console.log("the review of the stadium is", item.data().stadium_review);
 
-    // })
-    // console.log(data.docs[0].data());
+// })
+// console.log(data.docs[0].data());
 // })
 
 // submitrecipeform.addEventListener("submit", (e) => {
@@ -338,8 +338,8 @@ chc.addEventListener("click", (e) => {
     e.preventDefault();
     // check that you have done things correctly so far 
     // let html = '<h1 class="title is-size-3">Post a Recipe</h1>';
-    let html = 
-    `
+    let html =
+        `
     <div class="section">
         <div class="container">
             <div class = "columns">
@@ -383,8 +383,8 @@ let mkeb = document.querySelector("#mkeb");
 
 mkeb.addEventListener("click", (e) => {
     e.preventDefault();
-    let html = 
-    `
+    let html =
+        `
     <div class="section>
         <div class="container">
             <div class = "columns">
@@ -426,8 +426,8 @@ let pitp = document.querySelector("#pitp");
 
 pitp.addEventListener("click", (e) => {
     e.preventDefault();
-    let html = 
-    `
+    let html =
+        `
     <div class="section> 
         <div class="container">
             <div class = "columns">
@@ -468,8 +468,8 @@ let sfg = document.querySelector("#sfg");
 
 sfg.addEventListener("click", (e) => {
     e.preventDefault();
-    let html = 
-    `
+    let html =
+        `
     <div class="section>
         <div class="container">
             <div class = "columns">
@@ -752,5 +752,5 @@ rankings.addEventListener("click", (e) => {
     </div>
     `
     content = document.querySelector("#center");
-    content.innerHTML= html;
+    content.innerHTML = html;
 });
