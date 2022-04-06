@@ -741,3 +741,53 @@ rankings.addEventListener("click", (e) => {
     content = document.querySelector("#center");
     content.innerHTML = html;
 });
+
+
+
+// Search Bar 
+// search
+let search_button = document.querySelector("#search_button");
+
+// attach click event
+
+search_button.addEventListener("click", () => {
+    // grab content of input with id search_box
+
+    let search_box = document.querySelector("#search_box").value;
+    // test it out
+    // console.log(search_box);
+
+    // grab customized data from firebse
+    db.collection("calendar").where("team", "==", search_box).get().then((data) => {
+        // adjust this rentals if adjust database
+        // adjust title for field we choose
+        let calendar = data.docs;
+        // empty content div
+        content.innerHTML = "";
+
+        // loop through array
+        calendar.forEach((rental) => {
+            content.innerHTML += `
+            <div class="box">
+            <h1 class="title is-size-3 has-background-success-light p-2"> Submitted by ${calendar.data().team}</h1>
+            <p class="has-text-right has-text-danger"> ${calendar.data().pick_up_address}</p>
+            <p class="has-text-right has-text-danger"> ${calendar.data().drop_off_address}</p>
+            <p class="has-text-right has-text-danger"> ${calendar.data().pick_up_date}</p>
+            <p class="has-text-right has-text-danger"> ${calendar.data().drop_off_date}</p>
+            <p class="has-text-left has-text-success"> ${calendar.data().vehicle}</p>
+            <p class="has-text-left has-text-success"> ${calendar.data().color}</p>
+            <p class="has-text-left has-text-success"> ${calendar.data().accomodations}</p>
+            <p class="m-2"><img width="200" src="${calendar.data().url}"/></p>
+            // adjust here with form stuff
+          </div>    
+        `;
+            // console.log(item.data().title,"=>",item.data().desc)
+            // adjust title and description for each specific modal
+        })
+    })
+
+    // adjust vehicle modals to be posted on the main page
+
+
+
+})

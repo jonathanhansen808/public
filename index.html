@@ -179,27 +179,28 @@
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
                     <div class="search-container">
-                        <form action="/action_page.php">
-                            <input type="text" placeholder="Search.." name="search">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
+                        <!-- <form action="/action_page.php"> -->
+                        <input id="search_box" type="text" placeholder="Search.." name="search">
+                        <button id="search_button" type="submit"><i class="fa fa-search"></i></button>
+                        <!-- </form> -->
                     </div>
                     <!-- added in navigation things to go to main OMGBA website -->
                     <div class="navbar-item">
-                        <a class="navbar-item has-text-white" href="https://www.omgba.net/page/show/8750-home">
+                        <a class="navbar-item has-text-grey" href="https://www.omgba.net/page/show/8750-home">
                             Home
                         </a>
                     </div>
 
-                    <a class="navbar-item has-text-white" id="scheduler">
+                    <a class="navbar-item has-text-grey" id="scheduler">
                         <!-- was rankings id so change to scheduler if needed -->
                         Scheduler
                     </a>
-                    <a class="navbar-item has-text-white"
-                        href="https://www.omgba.net/page/show/8760-contact-information" id="about">
+                    <a class="navbar-item has-text-grey" href="https://www.omgba.net/page/show/8760-contact-information"
+                        id="about">
                         About
                     </a>
-                    <a class="navbar-item has-text-white" id="gyms">
+                    <a class="navbar-item has-text-grey" id="gyms"
+                        href="https://www.omgba.net/page/show/3331212-maple-grove-community-gymnasium-mgcg">
                         Gym Locations
                     </a>
                 </div>
@@ -207,19 +208,20 @@
 
             <div class="navbar-end">
                 <div class="navbar-item">
-                    <a id="signupbtn" class="loggedout has-text-white"> Coach Sign Up</a>
+                    <a id="signupbtn" class="loggedout has-text-grey"> Coach Sign Up</a>
                 </div>
                 <div class="navbar-item">
-                    <a id="signinbtn" class="loggedout has-text-white"> Coach Sign In</a>
+                    <a id="signinbtn" class="loggedout has-text-grey"> Coach Sign In</a>
+                </div>
+                <!-- can we make this admin sign in to only show for admins -->
+                <div class="navbar-item">
+                    <a id="admin_signinbtn" class="loggedin has-text-grey"> Admin Sign In</a>
                 </div>
                 <div class="navbar-item">
-                    <a id="admin_signinbtn" class="loggedout has-text-white"> Admin Sign In</a>
+                    <p id="welcome_user" class="loggedin has-text-grey"></p>
                 </div>
                 <div class="navbar-item">
-                    <p id="welcome_user" class="loggedin has-text-white"></p>
-                </div>
-                <div class="navbar-item">
-                    <a id="signoutbtn" class="loggedin has-text-white">Sign Out</a>
+                    <a id="signoutbtn" class="loggedin has-text-grey">Sign Out</a>
                 </div>
             </div>
         </nav>
@@ -267,8 +269,8 @@
                         <br>
                         <br>
                         <br>
-                        <label for="trades">Submit a trade submission:</label>
-                        <a
+                        <label class="loggedin" for="trades">Submit a trade submission:</label>
+                        <a class="loggedin"
                             href="https://docs.google.com/forms/d/e/1FAIpQLSciLY6nY84kxTECIxBshVi2l96AvrZihA08nrUKbFAVmv6rEw/viewform?usp=sf_link">Form</a>
                     </div>
 
@@ -312,7 +314,7 @@
                 <!-- default columns take whole size 213 -->
                 <div class="columns">
                     <!-- site navigation (left column)-->
-                    <div class="column has-background-black">
+                    <!-- <div class="column has-background-black">
                         <p class="has-background-danger-dark p-1 mt-5"></p>
                         <p class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-4">
                             Coach Sign-Up and Sign-In
@@ -363,119 +365,119 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <!-- COVID update column for 2021 season -->
-            <div class="section">
-                <div class="container">
+                    <!-- COVID update column for 2021 season -->
+                    <!-- <div class="section">
+                        <div class="container"> -->
                     <!-- default columns take whole size 213 -->
-                    <div class="columns">
-                        <!-- site navigation (left column)-->
-                        <div class="column has-background-black">
-                            <p class="has-background-danger-dark p-1 mt-5"></p>
-                            <p
-                                class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-4">
-                                Potential Extra Section
-                            </p>
-                            <p class="has-background-danger-dark p-1 mb-5"></p>
-                            <p> Add content here</p>
-                            <p class="mt-5">
-                                Add content here</p>
-                            <p class="mb-3">
-                                <a target="_blank" href=>
-                                    Add content here </a>
-                            </p>
+                    <!-- <div class="columns"> -->
+                    <!-- site navigation (left column)-->
+                    <!-- <div class="column has-background-black">
+                                    <p class="has-background-danger-dark p-1 mt-5"></p>
+                                    <p
+                                        class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-4">
+                                        Potential Extra Section
+                                    </p>
+                                    <p class="has-background-danger-dark p-1 mb-5"></p>
+                                    <p> Add content here</p>
+                                    <p class="mt-5">
+                                        Add content here</p>
+                                    <p class="mb-3">
+                                        <a target="_blank" href=>
+                                            Add content here </a>
+                                    </p>
+                                </div> -->
+                    <!-- </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </div> -->
 
-            <div class="section">
-                <div class="container">
+                    <!-- <div class="section">
+                        <div class="container"> -->
                     <!-- default columns take whole size 213 -->
-                    <div class="columns">
-                        <!-- site navigation (left column)-->
-                        <div class="column has-background-black">
-                            <p class="has-background-danger-dark p-1 mt-5"></p>
-                            <p
-                                class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-4">
-                                Add content here
-                            </p>
-                            <p class="has-background-danger-dark p-1 mb-5"></p>
-                            <p class="has-text-weight-bold has-text-centered mb-1">????</p>
-                            <p class="mb-6">
-                                Add content here
-                            </p>
+                    <!-- <div class="columns"> -->
+                    <!-- site navigation (left column)-->
+                    <!-- <div class="column has-background-black">
+                                    <p class="has-background-danger-dark p-1 mt-5"></p>
+                                    <p
+                                        class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-4">
+                                        Add content here
+                                    </p>
+                                    <p class="has-background-danger-dark p-1 mb-5"></p>
+                                    <p class="has-text-weight-bold has-text-centered mb-1">????</p>
+                                    <p class="mb-6">
+                                        Add content here
+                                    </p>
 
-                            <p class="has-text-weight-bold has-text-centered mb-1">??? </p>
-                            <p class="mb-6">
-                                Add content here
-                            </p>
+                                    <p class="has-text-weight-bold has-text-centered mb-1">??? </p>
+                                    <p class="mb-6">
+                                        Add content here
+                                    </p>
 
-                            <p class="has-text-weight-bold has-text-centered mb-1">???? </p>
-                            <p class="mb-6">
-                                Add content here
-                            </p>
+                                    <p class="has-text-weight-bold has-text-centered mb-1">???? </p>
+                                    <p class="mb-6">
+                                        Add content here
+                                    </p>
+                                </div> -->
+                    <!-- </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
+
+
+
+                <!-- Footer -->
+                <footer class="footer has-background-black has-text-weight-bold has-text-white">
+                    <div class="content has-text-centered">
+                        <p>Copyright ©2022 OMGBA All Rights Reserved.</p>
+                        <a href="http://facebook.com"><i class="fab fa-2x fa-facebook"></i></a>
+                        <a href="http://twitter.com"><i class="fab fa-2x fa-twitter"></i></a>
+                        <a href="http://reddit.com"><i class="fab fa-2x fa-reddit"></i></a>
+                        <a href="http://stubhub.com"><i class="fas fa-2x fa-ticket-alt"></i></a>
+
+                    </div>
+                </footer>
             </div>
-        </div>
+
+            <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+            <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+            <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+            <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+            <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+
+            <!-- Add Firebase products that you want to use -->
+            <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+            <script>
+                // TODO
+                // Copy **only** your firebaseConfig from Google Firebae and add it below
+                // Your web app's Firebase configuration
+                var firebaseConfig = {
+                    apiKey: "AIzaSyAXVUd-29_iUQcKJ_wVfarB82X6RkWCnPE",
+                    authDomain: "americaspastime-99f97.firebaseapp.com",
+                    projectId: "americaspastime-99f97",
+                    storageBucket: "americaspastime-99f97.appspot.com",
+                    messagingSenderId: "312220354836",
+                    appId: "1:312220354836:web:a69ef3b13b98dcb9e5da01"
+                };
+
+                // Initialize Firebase
 
 
-
-        <!-- Footer -->
-        <footer class="footer has-background-black has-text-weight-bold has-text-white">
-            <div class="content has-text-centered">
-                <p>Copyright ©2022 OMGBA All Rights Reserved.</p>
-                <a href="http://facebook.com"><i class="fab fa-2x fa-facebook"></i></a>
-                <a href="http://twitter.com"><i class="fab fa-2x fa-twitter"></i></a>
-                <a href="http://reddit.com"><i class="fab fa-2x fa-reddit"></i></a>
-                <a href="http://stubhub.com"><i class="fas fa-2x fa-ticket-alt"></i></a>
-
-            </div>
-        </footer>
-    </div>
-
-    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-
-    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
-
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
-
-    <script>
-        // TODO
-        // Copy **only** your firebaseConfig from Google Firebae and add it below
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyAXVUd-29_iUQcKJ_wVfarB82X6RkWCnPE",
-            authDomain: "americaspastime-99f97.firebaseapp.com",
-            projectId: "americaspastime-99f97",
-            storageBucket: "americaspastime-99f97.appspot.com",
-            messagingSenderId: "312220354836",
-            appId: "1:312220354836:web:a69ef3b13b98dcb9e5da01"
-        };
-
-        // Initialize Firebase
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+                // define authentication variable
+                let auth = firebase.auth();
+                let db = firebase.firestore();
+                let ref = firebase.storage().ref();
+            </script>
 
 
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        // define authentication variable
-        let auth = firebase.auth();
-        let db = firebase.firestore();
-        let ref = firebase.storage().ref();
-    </script>
-
-
-    <!-- JavaScript -->
-    <script src="index.js"></script>
+            <!-- JavaScript -->
+            <script src="index.js"></script>
 
 </body>
 
