@@ -35,12 +35,12 @@
             float: right;
             padding: 6px 10px;
             margin-left: 5px;
-            margin-top: 10px;
+            margin-top: 11px;
             background: white;
             font-size: 20px;
             border: none;
             cursor: pointer;
-            font-size: 24px;
+
         }
 
         .navbar-menu .search-container {
@@ -225,53 +225,97 @@
                 </div>
             </div>
         </nav>
+
         <!-- section class and container class -->
         <div class="section">
             <div class="container">
                 <!-- default columns take whole size 213 -->
-                <div class="columns ">
+                <div class="columns is-centered">
                     <!-- site navigation column (left column)-->
-                    <div class="column has-background-black is-2 has-text-white">
+                    <div class="column is-half has-background-black is-2 has-text-white">
                         <aside class="menu">
-                            <p class="menu-label has-text-centered  has-text-white has-text-weight-bold is-size-6">
-
-                            </p>
+                            <p class="menu-label has-text-centered  has-text-white has-text-weight-bold is-size-6"></p>
                         </aside>
-                        <br>
-                        <br>
-                        <label for="teams">Choose a team:</label>
-                        <br>
-                        <select name="teams" id="teams">
-                            <option value>Team 1</option>
-                            <option value>Team 2</option>
-                            <option value>Team 3</option>
-                            <option value>Team 4</option>
-                            <option value>Team 5</option>
-                            <option value>Team 6</option>
-                            <option value>Team 7</option>
-                            <option value>Team 8</option>
-                            <option value>Team 9</option>
-                            <option value>Team 10</option>
-                            <option value>Team 11</option>
-                            <option value>Team 12</option>
-                        </select>
-                        <br>
-                        <br>
-                        <br>
-                        <label for="courts">Choose a gym/court:</label>
 
-                        <select name="courts" id="courts">
-                            <option value>Court 1</option>
-                            <option value>Court 2</option>
-                            <option value>Court 3</option>
-                            <option value>Court 4</option>
-                        </select>
-                        <br>
-                        <br>
-                        <br>
-                        <label class="loggedin" for="trades">Submit a trade submission:</label>
-                        <a class="loggedin"
-                            href="https://docs.google.com/forms/d/e/1FAIpQLSciLY6nY84kxTECIxBshVi2l96AvrZihA08nrUKbFAVmv6rEw/viewform?usp=sf_link">Form</a>
+                        <div class="has-text-centered">
+                            <label for="courts">Choose a Team:</label>
+                        </div>
+
+                        <div class="dropdown level-item mt-2">
+                            <div class="dropdown-trigger">
+                                <button class="button" aria-haspopup="true" aria-controls="dropdown-ui-actions">
+                                    <span>Team</span>
+                                    <span class="icon is-small">
+                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="dropdown-menu" id="dropdown-ui-actions" role="menu">
+                                <div class="dropdown-content">
+                                    <a href="#" class="dropdown-item">
+                                        Team 1
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        Team 2
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        Team 3
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        Team 4
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        Team 5
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        Team 6
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        Team 7
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        Team 8
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="has-text-centered">
+                            <label for="courts">Choose a gym/court:</label>
+                        </div>
+
+                        <div class="dropdown level-item mt-2">
+                            <div class="dropdown-trigger">
+                                <button class="button" aria-haspopup="true" aria-controls="dropdown-ui-actions">
+                                    <span>Court</span>
+                                    <span class="icon is-small">
+                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="dropdown-menu" id="dropdown-ui-actions" role="menu">
+                                <div class="dropdown-content">
+                                    <a href="#" class="dropdown-item">
+                                        Court 1
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        Court 2
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        Court 3
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        Court 4
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="has-text-centered mt-2">
+                            <label class="loggedin has-text-centered mt-2" for="trades">Submit a trade
+                                submission:</label>
+                            <a class="loggedin"
+                                href="https://docs.google.com/forms/d/e/1FAIpQLSciLY6nY84kxTECIxBshVi2l96AvrZihA08nrUKbFAVmv6rEw/viewform?usp=sf_link">Form</a>
+                        </div>
                     </div>
 
 
@@ -308,6 +352,7 @@
                 </div>
             </div>
         </div>
+
         <!-- review section -->
         <div class="section">
             <div class="container">
