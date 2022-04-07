@@ -385,254 +385,254 @@ sfg.addEventListener("click", (e) => {
 });
 
 
-let rankings = document.querySelector("#rankings");
-console.log(rankings.id);
-rankings.addEventListener("click", (e) => {
-    e.preventDefault();
-    let content = document.querySelector("#center");
-    html = `
-    <div class="has-text-centered">
-    <p class="has-background-danger-dark p-1 mb-0"></p>
-    <p
-        class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-3">
-        Rankings
-    </p>
-    <p class="has-background-danger-dark p-1 mb-5"></p>
+// let rankings = document.querySelector("#rankings");
+// console.log(rankings.id);
+// rankings.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     let content = document.querySelector("#center");
+//     html = `
+//     <div class="has-text-centered">
+//     <p class="has-background-danger-dark p-1 mb-0"></p>
+//     <p
+//         class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-3">
+//         Rankings
+//     </p>
+//     <p class="has-background-danger-dark p-1 mb-5"></p>
 
-        <table class="table is-hoverable is-fullwidth is-striped">
-            <thead>
-                <tr>
-                <th>Rank</th> 
-                <th>Stadium</th>
-                <th>Team</th>  
-                <th>Score</th>
-                </tr>
-            </thead>
-           
-            <tbody>
-                <tr>
-                <th>1</th>
-                <td><a target="_blank" href="https://www.mlb.com/pirates/ballpark" title="PNC Park">PNC Park</a>
-                </td>
-                <td>Pittsburgh Pirates</td>
-                <td>96</td>
-                </tr>
+//         <table class="table is-hoverable is-fullwidth is-striped">
+//             <thead>
+//                 <tr>
+//                 <th>Rank</th> 
+//                 <th>Stadium</th>
+//                 <th>Team</th>  
+//                 <th>Score</th>
+//                 </tr>
+//             </thead>
 
-                <tr>
-                <th>2</th>
-                <td><a target="_blank" href="https://www.mlb.com/cubs/ballpark" title="Wrigley Field">Wrigley Field</a></td>
-                <td>Chicago Cubs</td>
-                <td>95</td>
-                </tr>
+//             <tbody>
+//                 <tr>
+//                 <th>1</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/pirates/ballpark" title="PNC Park">PNC Park</a>
+//                 </td>
+//                 <td>Pittsburgh Pirates</td>
+//                 <td>96</td>
+//                 </tr>
 
-                <tr>
-                <th>3</th>
-                <td><a target="_blank" href="https://www.mlb.com/braves/ballpark" title="Truist Park">Truist Park</a></td>
-                <td>Atlanta Braves</td>
-                <td>93</td>
-                </tr>
+//                 <tr>
+//                 <th>2</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/cubs/ballpark" title="Wrigley Field">Wrigley Field</a></td>
+//                 <td>Chicago Cubs</td>
+//                 <td>95</td>
+//                 </tr>
 
-                <tr>
-                <th>4</th>
-                <td><a target="_blank" href="https://www.mlb.com/twins/ballpark" title="Target Field">Target Field</a></td>
-                <td>Minnesota Twins</td>
-                <td>91</td>
-                </tr>
+//                 <tr>
+//                 <th>3</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/braves/ballpark" title="Truist Park">Truist Park</a></td>
+//                 <td>Atlanta Braves</td>
+//                 <td>93</td>
+//                 </tr>
 
-                <tr>
-                <th>5</th>
-                <td><a target="_blank" href="https://www.mlb.com/giants/ballpark" title="Oracle Park">Oracle Park</a></td>
-                <td>San Francisco Giants</td>
-                <td>90</td>
-                </tr>
+//                 <tr>
+//                 <th>4</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/twins/ballpark" title="Target Field">Target Field</a></td>
+//                 <td>Minnesota Twins</td>
+//                 <td>91</td>
+//                 </tr>
 
-                <tr>
-                <th>6</th>
-                <td><a target="_blank" href="https://www.mlb.com/dodgers/ballpark" title="Dodger Stadium">Dodger Stadium</a></td>
-                <td>Los Angeles Dodgers</td>
-                <td>89</td>
-                </tr>
+//                 <tr>
+//                 <th>5</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/giants/ballpark" title="Oracle Park">Oracle Park</a></td>
+//                 <td>San Francisco Giants</td>
+//                 <td>90</td>
+//                 </tr>
 
-                <tr>
-                <th>7</th>
-                <td><a target="_blank" href="https://www.mlb.com/padres/ballpark" title="Petco Park ">Petco Park </a></td>
-                <td>San Diego Padres</td>
-                <td>87</td>
-                </tr>
+//                 <tr>
+//                 <th>6</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/dodgers/ballpark" title="Dodger Stadium">Dodger Stadium</a></td>
+//                 <td>Los Angeles Dodgers</td>
+//                 <td>89</td>
+//                 </tr>
 
-                <tr>
-                <th>8</th>
-                <td><a target="_blank" href="https://www.mlb.com/mets/ballpark" title="Citi Field  ">Citi Field </a></td>
-                <td>New York Mets</td>
-                <td>86</td>
-                </tr>
+//                 <tr>
+//                 <th>7</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/padres/ballpark" title="Petco Park ">Petco Park </a></td>
+//                 <td>San Diego Padres</td>
+//                 <td>87</td>
+//                 </tr>
 
-          
-
-                <tr>
-                <th>9</th>
-                <td><a target="_blank" href="https://www.mlb.com/redsox/ballpark" title="Fenway Park">Fenway Park</a></td>
-                <td>Boston Red Sox</td>
-                <td>85</td>
-                </tr>
-
-                <tr>
-                <th>10</th>
-                <td><a target="_blank" href="https://www.mlb.com/phillies/ballpark" title="Citizens Bank Park">Citizens Bank Park</a></td>
-                <td>Philadelphia Phillies</td>
-                <td>84</td>
-                </tr>
-
-                <tr>
-                <th>11</th>
-                <td><a target="_blank" href="https://www.mlb.com/rangers/ballpark" title="Globe Life Field">Globe Life Field</a></td>
-                <td>Texas Rangers</td>
-                <td>84</td>
-                </tr>
+//                 <tr>
+//                 <th>8</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/mets/ballpark" title="Citi Field  ">Citi Field </a></td>
+//                 <td>New York Mets</td>
+//                 <td>86</td>
+//                 </tr>
 
 
 
-                <tr>
-                <th>12</th>
-                <td><a target="_blank" href="https://www.mlb.com/mariners/ballpark" title="T-Mobile Park">T-Mobile Park</a></td>
-                <td>Seattle Mariners</td>
-                <td>83</td>
-                </tr>
+//                 <tr>
+//                 <th>9</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/redsox/ballpark" title="Fenway Park">Fenway Park</a></td>
+//                 <td>Boston Red Sox</td>
+//                 <td>85</td>
+//                 </tr>
 
-                <tr>
-                <th>13</th>
-                <td><a target="_blank" href="https://www.mlb.com/yankees/ballpark" title="Yankee Stadium">Yankee Stadium</a></td>
-                <td>New York Yankees</td>
-                <td>82</td>
-                </tr>
+//                 <tr>
+//                 <th>10</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/phillies/ballpark" title="Citizens Bank Park">Citizens Bank Park</a></td>
+//                 <td>Philadelphia Phillies</td>
+//                 <td>84</td>
+//                 </tr>
 
-                <tr>
-                <th>14</th>
-                <td><a target="_blank" href="https://www.mlb.com/royals/ballpark" title="Kauffman Stadium">Kauffman Stadium</a></td>
-                <td>Kansas City Royals</td>
-                <td>80</td>
-                </tr>
-
-                <tr>
-                <th>15</th>
-                <td><a target="_blank" href="https://www.mlb.com/orioles/ballpark" title="Oriole Park at Camden Yards">Oriole Park at Camden Yards</td>
-                <td>Baltimore Orioles</td>
-                <td>79</td>
-                </tr>
-
-                <tr>
-                <th>16</th>
-                <td><a target="_blank" href="https://www.mlb.com/rockies/ballpark" title="Coors Field">Coors Field</a></td>
-                <td>Colorado Rockies</td>
-                <td>78</td>
-                </tr>
-
-                <tr>
-                <th>17</th>
-                <td><a target="_blank" href="https://www.mlb.com/indians/ballpark" title="Progressive Field"> Progressive Field</a></td>
-                <td>Cleveland Indians</td>
-                <td>77</td>
-                </tr>
-
-                <tr>
-                <th>18</th>
-                <td><a target="_blank" href="https://www.mlb.com/nationals/ballpark" title="Nationals Park">Nationals Park</a></td>
-                <td>Washington Nationals</td>
-                <td>76</td>
-                </tr>
-
-                <tr>
-                <th>19</th>
-                <td><a target="_blank" href="https://www.mlb.com/brewers/ballpark" title="Miller Park">American Family Field</a></td>
-                <td>Milwaukee Brewers</td>
-                <td>74</td>
-                </tr>
-
-                <tr>
-                <th>20</th>
-                <td><a target="_blank" href="https://www.mlb.com/astros/ballpark" title="Minute Maid Park">Minute Maid Park</a></td>
-                <td>Houston Astros</td>
-                <td>72</td>
-                </tr>
-
-                <tr>
-                <th>21</th>
-                <td><a target="_blank" href="https://www.mlb.com/tigers/ballpark" title="Comerica Park">Comerica Park</a></td>
-                <td>Detroit Tigers</td>
-                <td>70</td>
-                </tr>
-
-                <tr>
-                <th>22</th>
-                <td><a target="_blank" href="https://www.mlb.com/marlins/ballpark" title="Marlins Park ">Marlins Park </a></td>
-                <td>Miami Marlins</td>
-                <td>69</td>
-                </tr>
-
-                <tr>
-                <th>23</th>
-                <td><a target="_blank" href="https://www.mlb.com/cardinals/ballpark" title="Busch Stadium">Busch Stadium</a></td>
-                <td>St. Louis Cardinals </td>
-                <td>67</td>
-                </tr>
-
-                <tr>
-                <th>24</th>
-                <td><a target="_blank" href="https://www.mlb.com/whitesox/ballpark" title="Guaranteed Rate Field">Guaranteed Rate Field</a></td>
-                <td>Chicago White Sox </td>
-                <td>66</td>
-                </tr>
-
-                <tr>
-                <th>25</th>
-                <td><a target="_blank" href="https://www.mlb.com/reds/ballpark" title="Great American Ball Park">Great American Ball Park</a></td>
-                <td>Cincinnate Reds</td>
-                <td>64</td>
-                </tr>
-
-                <tr>
-                <th>26</th>
-                <td><a target="_blank" href="https://www.mlb.com/angels/ballpark" title="Angel Stadium">Angel Stadium</a></td>
-                <td>Los Angeles Angles</td>
-                <td>63</td>
-                </tr>
-
-                <tr>
-                <th>27</th>
-                <td><a target="_blank" href="https://www.mlb.com/diamondbacks/ballpark" title="Chase Field">Chase Field</a></td>
-                <td>Arizona Diamondbacks</td>
-                <td>62</td>
-                </tr>
-
-                <tr>
-                <th>28</th>
-                <td><a target="_blank" href="https://www.mlb.com/bluejays/ballpark" title="Rogers Centre">Rogers Centre</a></td>
-                <td>Toronto Blue Jays </td>
-                <td>61</td>
-                </tr>
-
-                <tr>
-                <th>29</th>
-                <td><a target="_blank" href="https://www.mlb.com/rays/ballpark" title="Tropicana Field">Tropicana Field</a></td>
-                <td>Tampa Bay Rays</td>
-                <td>60</td>
-                </tr>
-
-                <tr>
-                <th>30</th>
-                <td><a target="_blank" href="https://www.mlb.com/athletics/ballpark" title="Oakland Coliseum">Oakland Coliseum</a></td>
-                <td>Oakland Athletics </td>
-                <td>59</td>
-                </tr>
+//                 <tr>
+//                 <th>11</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/rangers/ballpark" title="Globe Life Field">Globe Life Field</a></td>
+//                 <td>Texas Rangers</td>
+//                 <td>84</td>
+//                 </tr>
 
 
-            </tbody>
-        </table>
-    </div>
-    `
-    content = document.querySelector("#center");
-    content.innerHTML = html;
-});
+
+//                 <tr>
+//                 <th>12</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/mariners/ballpark" title="T-Mobile Park">T-Mobile Park</a></td>
+//                 <td>Seattle Mariners</td>
+//                 <td>83</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>13</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/yankees/ballpark" title="Yankee Stadium">Yankee Stadium</a></td>
+//                 <td>New York Yankees</td>
+//                 <td>82</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>14</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/royals/ballpark" title="Kauffman Stadium">Kauffman Stadium</a></td>
+//                 <td>Kansas City Royals</td>
+//                 <td>80</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>15</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/orioles/ballpark" title="Oriole Park at Camden Yards">Oriole Park at Camden Yards</td>
+//                 <td>Baltimore Orioles</td>
+//                 <td>79</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>16</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/rockies/ballpark" title="Coors Field">Coors Field</a></td>
+//                 <td>Colorado Rockies</td>
+//                 <td>78</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>17</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/indians/ballpark" title="Progressive Field"> Progressive Field</a></td>
+//                 <td>Cleveland Indians</td>
+//                 <td>77</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>18</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/nationals/ballpark" title="Nationals Park">Nationals Park</a></td>
+//                 <td>Washington Nationals</td>
+//                 <td>76</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>19</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/brewers/ballpark" title="Miller Park">American Family Field</a></td>
+//                 <td>Milwaukee Brewers</td>
+//                 <td>74</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>20</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/astros/ballpark" title="Minute Maid Park">Minute Maid Park</a></td>
+//                 <td>Houston Astros</td>
+//                 <td>72</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>21</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/tigers/ballpark" title="Comerica Park">Comerica Park</a></td>
+//                 <td>Detroit Tigers</td>
+//                 <td>70</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>22</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/marlins/ballpark" title="Marlins Park ">Marlins Park </a></td>
+//                 <td>Miami Marlins</td>
+//                 <td>69</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>23</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/cardinals/ballpark" title="Busch Stadium">Busch Stadium</a></td>
+//                 <td>St. Louis Cardinals </td>
+//                 <td>67</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>24</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/whitesox/ballpark" title="Guaranteed Rate Field">Guaranteed Rate Field</a></td>
+//                 <td>Chicago White Sox </td>
+//                 <td>66</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>25</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/reds/ballpark" title="Great American Ball Park">Great American Ball Park</a></td>
+//                 <td>Cincinnate Reds</td>
+//                 <td>64</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>26</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/angels/ballpark" title="Angel Stadium">Angel Stadium</a></td>
+//                 <td>Los Angeles Angles</td>
+//                 <td>63</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>27</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/diamondbacks/ballpark" title="Chase Field">Chase Field</a></td>
+//                 <td>Arizona Diamondbacks</td>
+//                 <td>62</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>28</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/bluejays/ballpark" title="Rogers Centre">Rogers Centre</a></td>
+//                 <td>Toronto Blue Jays </td>
+//                 <td>61</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>29</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/rays/ballpark" title="Tropicana Field">Tropicana Field</a></td>
+//                 <td>Tampa Bay Rays</td>
+//                 <td>60</td>
+//                 </tr>
+
+//                 <tr>
+//                 <th>30</th>
+//                 <td><a target="_blank" href="https://www.mlb.com/athletics/ballpark" title="Oakland Coliseum">Oakland Coliseum</a></td>
+//                 <td>Oakland Athletics </td>
+//                 <td>59</td>
+//                 </tr>
+
+
+//             </tbody>
+//         </table>
+//     </div>
+//     `
+//     content = document.querySelector("#center");
+//     content.innerHTML = html;
+// });
 
 
 
