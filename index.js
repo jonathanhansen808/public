@@ -129,69 +129,69 @@ function closeDropdowns() {
     });
 }
 
-let about = document.querySelector("#about");
-about.addEventListener("click", (e) => {
-    e.preventDefault();
-    let content = document.querySelector('#center');
+// let about = document.querySelector("#about");
+// about.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     let content = document.querySelector('#center');
 
-    html =
-        `
-            <div>
-                <div>
-                    <p class="has-background-danger-dark p-1 mb-5"></p>
-                    <p
-                        class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-3">
-                        About
-                    </p>
-                    <p class="has-background-danger-dark p-1 mb-5"></p>
-                    <p class="mb-5">
+//     html =
+//         `
+//             <div>
+//                 <div>
+//                     <p class="has-background-danger-dark p-1 mb-5"></p>
+//                     <p
+//                         class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-3">
+//                         About
+//                     </p>
+//                     <p class="has-background-danger-dark p-1 mb-5"></p>
+//                     <p class="mb-5">
 
-                    </p>
-                    <div>
-                        <p class="mb-6">
-                            Welcome to <a href="index.html">America's Pastime Reviews</a>! This website was
-                            created
-                            to consolidate all information about the MLB stadiums, both in the
-                            American and National League. Information about any stadium, including their events
-                            and
-                            ticket information can be found on any individual stadium's page.
-                        </p>
-                        <p class="mb-6">
-                            Here, fans can rate their experiences at various stadiums to help other fans decide
-                            whether or not they want to attend an event happening at a certain stadium. To see
-                            fan's
-                            reviews or leave your own review, please sign up using the link at the top right of
-                            the
-                            website.
-                        </p>
-                        <p class="mb-6">
-                            Both Jon and Peter are avid sports fans, so when they were assigned to create a
-                            website for their web development class, it was a no brainer to create a sports
-                            related website. We both like baseball and really enjoy the architecture of the
-                            stadiums and the uniqueness that each stadium has.
-                        </p>
+//                     </p>
+//                     <div>
+//                         <p class="mb-6">
+//                             Welcome to <a href="index.html">America's Pastime Reviews</a>! This website was
+//                             created
+//                             to consolidate all information about the MLB stadiums, both in the
+//                             American and National League. Information about any stadium, including their events
+//                             and
+//                             ticket information can be found on any individual stadium's page.
+//                         </p>
+//                         <p class="mb-6">
+//                             Here, fans can rate their experiences at various stadiums to help other fans decide
+//                             whether or not they want to attend an event happening at a certain stadium. To see
+//                             fan's
+//                             reviews or leave your own review, please sign up using the link at the top right of
+//                             the
+//                             website.
+//                         </p>
+//                         <p class="mb-6">
+//                             Both Jon and Peter are avid sports fans, so when they were assigned to create a
+//                             website for their web development class, it was a no brainer to create a sports
+//                             related website. We both like baseball and really enjoy the architecture of the
+//                             stadiums and the uniqueness that each stadium has.
+//                         </p>
 
-                        <p class="mb-6">
-                            Peter is from the Chicago suburbs and has been a life long Cubs fan. He has been to
-                            several opening day games at Wrigley Field, as well as attended games at several
-                            other ballparks. Below are some pictures that he has captured over the years that
-                            shows the beauty of Wrigley Field.
-                        </p>
+//                         <p class="mb-6">
+//                             Peter is from the Chicago suburbs and has been a life long Cubs fan. He has been to
+//                             several opening day games at Wrigley Field, as well as attended games at several
+//                             other ballparks. Below are some pictures that he has captured over the years that
+//                             shows the beauty of Wrigley Field.
+//                         </p>
 
-                        <p class="mb-6">
-                            Jon is from the Oshkosh, Wisconsin and has been a Brewers fan his whole life. As big of a fan as he is,
-                            he'll never get over the fact that the Brewers switched their name from Miller Park. 
-                        </p>
-                        <div class='ml-4 mr-4 mb-4'>
-                            <p><img src="images/chicubs.JPG"></p>
-                        <div>
-                    </div>
-                </div>
-            </div>
-           `
-    // content = document.querySelector("#center");
-    content.innerHTML = html
-})
+//                         <p class="mb-6">
+//                             Jon is from the Oshkosh, Wisconsin and has been a Brewers fan his whole life. As big of a fan as he is,
+//                             he'll never get over the fact that the Brewers switched their name from Miller Park. 
+//                         </p>
+//                         <div class='ml-4 mr-4 mb-4'>
+//                             <p><img src="images/chicubs.JPG"></p>
+//                         <div>
+//                     </div>
+//                 </div>
+//             </div>
+//            `
+// content = document.querySelector("#center");
+// content.innerHTML = html
+// })
 
 
 let signup_form = document.querySelector("#signup_form");
