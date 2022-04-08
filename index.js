@@ -343,46 +343,46 @@ post_comment.addEventListener("click", (e) => {
 //     })
 // })
 
-let sfg = document.querySelector("#sfg");
+// let sfg = document.querySelector("#sfg");
 
-sfg.addEventListener("click", (e) => {
-    e.preventDefault();
-    let html =
-        `
-    <div class="section>
-        <div class="container">
-            <div class = "columns">
-                <div class="column p-2">
-                    <div class="content">
-                    <p class="has-background-danger-dark p-1 mb-0"></p>
-                    <p
-                        class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-3">
-                        Oracle Park
-                    </p>
-                    <p class="has-background-danger-dark p-1 mb-5"></p>                        <p><img src="images/sfg.webp"></p>
-                        <p> Oracle Park has a beautiful backdrop of the San Francisco Bay that is so close that people in boats sometimes can catch the homeruns. Enjoy the sun and sit back for a great experience. </p>
-                        <p>
-                            <ul>
-                                <li>Address: 24 Willie Mays Plaza</li>
-                                <li>Opened: Aril 11, 2000</li>
-                                <li>Capacity: 40,930</li>
-                            </ul>
-                        </p>
-                        <p> 
-                            <h1> Buy Tickets Now! </h1>
-                            <p> <a target="_blank" href="https://www.ticketmaster.com/san-francisco-giants-tickets/artist/806016">Giants Tickets</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    `
-    // check that you have done things correctly so far 
-    let content = document.querySelector("#center");
-    let information = `sfg`;
-    content.innerHTML = html;
-});
+// sfg.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     let html =
+//         `
+//     <div class="section>
+//         <div class="container">
+//             <div class = "columns">
+//                 <div class="column p-2">
+//                     <div class="content">
+//                     <p class="has-background-danger-dark p-1 mb-0"></p>
+//                     <p
+//                         class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-3">
+//                         Oracle Park
+//                     </p>
+//                     <p class="has-background-danger-dark p-1 mb-5"></p>                        <p><img src="images/sfg.webp"></p>
+//                         <p> Oracle Park has a beautiful backdrop of the San Francisco Bay that is so close that people in boats sometimes can catch the homeruns. Enjoy the sun and sit back for a great experience. </p>
+//                         <p>
+//                             <ul>
+//                                 <li>Address: 24 Willie Mays Plaza</li>
+//                                 <li>Opened: Aril 11, 2000</li>
+//                                 <li>Capacity: 40,930</li>
+//                             </ul>
+//                         </p>
+//                         <p> 
+//                             <h1> Buy Tickets Now! </h1>
+//                             <p> <a target="_blank" href="https://www.ticketmaster.com/san-francisco-giants-tickets/artist/806016">Giants Tickets</a>
+//                         </p>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     </div>
+//     `
+// check that you have done things correctly so far 
+//     let content = document.querySelector("#center");
+//     let information = `sfg`;
+//     content.innerHTML = html;
+// });
 
 
 // let rankings = document.querySelector("#rankings");
@@ -637,6 +637,7 @@ sfg.addEventListener("click", (e) => {
 
 
 // Search Bar 
+// Search bar would be set up for Admin to search through trades
 // search
 let search_button = document.querySelector("#search_button");
 
@@ -661,14 +662,13 @@ search_button.addEventListener("click", () => {
         calendar.forEach((rental) => {
             content.innerHTML += `
             <div class="box">
-            <h1 class="title is-size-3 has-background-success-light p-2"> ${calendar.data().team}</h1>
-            <p class="has-text-right has-text-danger"> ${calendar.data().pick_up_address}</p>
-            <p class="has-text-right has-text-danger"> ${calendar.data().drop_off_address}</p>
-            <p class="has-text-right has-text-danger"> ${calendar.data().pick_up_date}</p>
-            <p class="has-text-right has-text-danger"> ${calendar.data().drop_off_date}</p>
-            <p class="has-text-left has-text-success"> ${calendar.data().vehicle}</p>
-            <p class="has-text-left has-text-success"> ${calendar.data().color}</p>
-            <p class="has-text-left has-text-success"> ${calendar.data().accomodations}</p>
+            <h1 class="title is-size-3 has-background-success-light p-2"> ${calendar.data().league}</h1>
+            <p class="has-text-right has-text-danger"> ${calendar.data().receiving_gym}</p>
+            <p class="has-text-right has-text-danger"> ${calendar.data().receiving_time}</p>
+            <p class="has-text-right has-text-danger"> ${calendar.data().sending_gym}</p>
+            <p class="has-text-right has-text-danger"> ${calendar.data().sending_time}</p>
+            <p class="has-text-left has-text-success"> ${calendar.data().team}</p>
+            <p class="has-text-left has-text-success"> ${calendar.data().trading_team}</p>
             <p class="m-2"><img width="200" src="${calendar.data().url}"/></p>
             // adjust here with form stuff
           </div>    
