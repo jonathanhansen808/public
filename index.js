@@ -3,40 +3,40 @@ let loggedinlinks = document.querySelectorAll(".loggedin");
 
 // content div
 let content = document.querySelector("#content");
-let review_content = document.querySelector('#review_content');
+// let review_content = document.querySelector('#review_content');
 
-function configureContent(user_) {
-    if (user_) {
+// function configureContent(user_) {
+//     if (user_) {
 
-        db.collection("reviews").get().then((data) => {
-            let stadiums = data.docs;
+//         db.collection("reviews").get().then((data) => {
+//             let stadiums = data.docs;
 
-            let content = document.querySelector("#center");
-            review_content.innerHTML = "";
+//             let content = document.querySelector("#center");
+//             review_content.innerHTML = "";
 
-            stadiums.forEach((stadium) => {
-                review_content.innerHTML += `
-                <div class="box">
-                    <h1 class="title is-size-3 has-background-primary-light has-text-danger-dark">${stadium.data().stadium_name}</h1>
-                    <p class="has-text-right">Submitted by: ${stadium.data().email}</p>
-                    <p>${stadium.data().stadium_score}</p>
-                    <p>${stadium.data().stadium_review}</p>
-                    <div class="has-text-centered">
-                        <p class="m-2 ml-auto mr-auto is-centered"><img width="600" src="${stadium.data().url}" /></p>
-                    </div>
-                </div>
-                `;
-            })
-        })
+//             stadiums.forEach((stadium) => {
+//                 review_content.innerHTML += `
+//                 <div class="box">
+//                     <h1 class="title is-size-3 has-background-primary-light has-text-danger-dark">${stadium.data().stadium_name}</h1>
+//                     <p class="has-text-right">Submitted by: ${stadium.data().email}</p>
+//                     <p>${stadium.data().stadium_score}</p>
+//                     <p>${stadium.data().stadium_review}</p>
+//                     <div class="has-text-centered">
+//                         <p class="m-2 ml-auto mr-auto is-centered"><img width="600" src="${stadium.data().url}" /></p>
+//                     </div>
+//                 </div>
+//                 `;
+//             })
+//         })
 
-    } else {
-        review_content.innerHTML = "";
-        review_content.innerHTML = `
-        <div class="has-text-centered mb-3">
-        <p class="is-size-5">Be sure to sign up at the top-right of the page to be able to look at? </p>
-        </div>`
-    }
-}
+//     } else {
+//         review_content.innerHTML = "";
+//         review_content.innerHTML = `
+//         <div class="has-text-centered mb-3">
+//         <p class="is-size-5">Be sure to sign up at the top-right of the page to be able to look at? </p>
+//         </div>`
+//     }
+// }
 
 function configureNav(user) {
     // check is user is passed and signed in
@@ -278,40 +278,40 @@ auth.onAuthStateChanged((user) => {
 // attach submit event for reviews 
 
 // store details in FIREBASE
-let post_comment = document.querySelector('#post_comment');
+// let post_comment = document.querySelector('#post_comment');
 
-post_comment.addEventListener("click", (e) => {
-    e.preventDefault();
-    // grab review 
-    let stadium = document.querySelector("#stadium").value;
-    let score = document.querySelector("#score").value;
-    let review = document.querySelector("#review").value;
+// post_comment.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     // grab review 
+//     let stadium = document.querySelector("#stadium").value;
+//     let score = document.querySelector("#score").value;
+//     let review = document.querySelector("#review").value;
 
-    let file = document.querySelector("#stadium_image").files[0];
-    let image = new Date() + "_" + file.name;
+//     let file = document.querySelector("#stadium_image").files[0];
+//     let image = new Date() + "_" + file.name;
 
-    const task = ref.child(image).put(file);
+//     const task = ref.child(image).put(file);
 
-    task
-        .then(snapshot => snapshot.ref.getDownloadURL())
-        .then((url) => {
-            let comment_details = {
-                stadium_name: stadium,
-                stadium_score: score,
-                stadium_review: review,
-                email: auth.currentUser.email,
-                url: url
-            }
+//     task
+//         .then(snapshot => snapshot.ref.getDownloadURL())
+//         .then((url) => {
+//             let comment_details = {
+//                 stadium_name: stadium,
+//                 stadium_score: score,
+//                 stadium_review: review,
+//                 email: auth.currentUser.email,
+//                 url: url
+//             }
 
-            db.collection("reviews").add(comment_details).then((data) => {
-                console.log("review added");
-            })
-            document.getElementById('stadium').value = '';
-            document.getElementById('score').value = '';
-            document.getElementById('review').value = '';
-            document.getElementById("stadium_image").value = "";
-        })
-})
+//             db.collection("reviews").add(comment_details).then((data) => {
+//                 console.log("review added");
+//             })
+//             document.getElementById('stadium').value = '';
+//             document.getElementById('score').value = '';
+//             document.getElementById('review').value = '';
+//             document.getElementById("stadium_image").value = "";
+//         })
+// })
 
 // retrieve data from firebase 
 // db.collection("reviews").get().then((data) => {
@@ -679,7 +679,120 @@ search_button.addEventListener("click", () => {
     })
 
     // adjust vehicle modals to be posted on the main page
+})
 
+// trade submission form
+let tradebtn = document.querySelector("#tradebtn");
+let hidden_form = document.querySelector("#hidden_form");
+let html = `<div class="is-size-2  title has-background-primary-dark has-text-centered has-text-white">Post your Rental!</div>
+<!-- make this form centered using bulma -->
+            <div class="field">
+                <label class="label has-text-white">What league are you in?</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="e.g. League 1">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label has-text-white">What court will you be trading for?</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="e.g. Court 1">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label has-text-white">What time slot will you be trading for?</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="e.g. 6 pm">
+                </div>
+              </div>
+    
+                
+              <div class="field">
+                <label class="label has-text-white">What court will you be trading?</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="e.g. Court 2">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label has-text-white">What time slot will you be trading?</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="e.g. 6 pm">
+                </div>
+              </div>
+                
+              
+              
+              <div class="field">
+                <label class="label has-text-white">What team are you</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="e.g. Team 1">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label has-text-white">What team are you trading with?</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="e.g. Team 2">
+                </div>
+              </div>
+`;
+let tradeform = document.querySelector("#tradeform");
+tradebtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.querySelector("#center").innerHTML = "";
+    tradeform.innerHTML = html;
+})
+
+// store trade data in database
+tradeform.addEventListener("submit", (e) => {
+    e.preventDefault()
+    // adjust this part to match form 
+
+    // grab the recipe title
+    // use everything but Wisc Email and url
+    let trade_league = document.querySelector("#trade_league").value;
+    let trade_receiving_gym = document.querySelector("#trade_receiving_gym").value;
+    let trade_receiving_time = document.querySelector("#trade_receiving_time").value;
+    let trade_sending_gym = document.querySelector("#trade_sending_gym").value;
+    let trade_team = document.querySelector("#trade_team").value;
+    let trade__trading_team = document.querySelector("#trade__trading_team").value;
+
+    task
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then((url) => {
+            // console.log(url);
+            // combine title and description into one object
+            let trade_details = {
+                league: trade_league,
+                receiving_gym: trade_receiving_gym,
+                receiving_time: trade_receiving_time,
+                sending_gym: rental_pick_up_date,
+                sending_time: trade_sending_gym,
+                team: trade_team,
+                trading_team: trade__trading_team
+
+
+            }
+
+
+            console.log(trade_details);
+
+
+
+
+            // test
+            // console.log(recipe_title, "=>", recipe_description);
+            // console.log(recipe_details);
+
+            // add recipe details into firebase
+            db.collection("trades").add(trade_details).then((data) => {
+                console.log("trade added");
+                // console.log(data.id)
+
+                // 1. reset the form
+                tradeform.reset();
+                // 2. display success message for the user
+                alert("You successfully submitted a trade");
+            })
+        })
 
 
 })

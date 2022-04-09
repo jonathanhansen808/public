@@ -311,18 +311,19 @@
                             </div>
                         </div>
                         <div class="has-text-centered mt-2">
-                            <label class="loggedin has-text-centered mt-2" for="trades">Submit a trade
+                            <label class="loggedin has-text-centered mt-2" id="trade_form">Submit a trade
                                 submission:</label>
-                            <a class="loggedin"
-                                href="https://docs.google.com/forms/d/e/1FAIpQLSciLY6nY84kxTECIxBshVi2l96AvrZihA08nrUKbFAVmv6rEw/viewform?usp=sf_link">Form</a>
+                            <a id="tradebtn" class="">Form</a>
                         </div>
                     </div>
 
 
                     <!-- Main column (middle column) -->
+                    <!-- trade form -->
+
                     <div class="column has-background-black ml-2" id="center">
                         <div class="container" id="hidden_form">
-                            <form id="submitrecipeform"></form>
+                            <form id="tradeform"></form>
                         </div>
                         <div class="container" id="content">
                             <iframe
@@ -332,6 +333,8 @@
                             <p>For enhanced features click on Google Calendar button in lower right corner.</p>
                         </div>
                     </div>
+
+
                     <!-- Twitter Feed Column -->
                     <div class="column is-3 ml-2 has-background-black p-1">
                         <div class="message">
