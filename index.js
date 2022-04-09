@@ -746,8 +746,6 @@ tradeform.addEventListener("submit", (e) => {
     e.preventDefault()
     // adjust this part to match form 
 
-    // grab the recipe title
-    // use everything but Wisc Email and url
     let trade_league = document.querySelector("#trade_league").value;
     let trade_receiving_gym = document.querySelector("#trade_receiving_gym").value;
     let trade_receiving_time = document.querySelector("#trade_receiving_time").value;
