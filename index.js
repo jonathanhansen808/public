@@ -684,8 +684,7 @@ search_button.addEventListener("click", () => {
 // trade submission form
 let tradebtn = document.querySelector("#tradebtn");
 let center = document.querySelector("#center");
-let html = `<div class="is-size-2  title has-background-primary-dark has-text-centered has-text-white">Post your Rental!</div>
-<!-- make this form centered using bulma -->
+let html = `<div class="is-size-2  title has-background-primary-dark has-text-centered has-text-white">Post your Trade</div>
             <div class="field">
                 <label class="label has-text-white">What league are you in?</label>
                 <div class="control">
