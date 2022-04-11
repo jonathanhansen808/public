@@ -682,25 +682,26 @@ search_button.addEventListener("click", () => {
 })
 
 // trade submission form
+
 let tradebtn = document.querySelector("#tradebtn");
-let center = document.querySelector("#center");
+let hidden_form = document.querySelector("#hidden_form");
 let html = `<div class="is-size-2  title has-background-primary-dark has-text-centered has-text-white">Post your Trade</div>
             <div class="field">
                 <label class="label has-text-white">What league are you in?</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="e.g. League 1">
+                  <input class="input" type="text" placeholder="e.g. League 1" id="trade_league">
                 </div>
               </div>
               <div class="field">
                 <label class="label has-text-white">What court will you be trading for?</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="e.g. Court 1">
+                  <input class="input" type="text" placeholder="e.g. Court 1" id="trade_receiving_gym">
                 </div>
               </div>
               <div class="field">
                 <label class="label has-text-white">What time slot will you be trading for?</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="e.g. 6 pm">
+                  <input class="input" type="text" placeholder="e.g. 6 pm" id="trade_receiving_time"">
                 </div>
               </div>
     
@@ -708,35 +709,33 @@ let html = `<div class="is-size-2  title has-background-primary-dark has-text-ce
               <div class="field">
                 <label class="label has-text-white">What court will you be trading?</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="e.g. Court 2">
+                  <input class="input" type="text" placeholder="e.g. Court 2" id="trade_sending_gym">
                 </div>
               </div>
               <div class="field">
                 <label class="label has-text-white">What time slot will you be trading?</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="e.g. 6 pm">
+                  <input class="input" type="text" placeholder="e.g. 6 pm" id="trade_sending_time">
                 </div>
               </div>
-                
-              
               
               <div class="field">
                 <label class="label has-text-white">What team are you</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="e.g. Team 1">
+                  <input class="input" type="text" placeholder="e.g. Team 1" id="trade_team">
                 </div>
               </div>
               <div class="field">
                 <label class="label has-text-white">What team are you trading with?</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="e.g. Team 2">
+                  <input class="input" type="text" placeholder="e.g. Team 2" id="trade_trading_team">
                 </div>
               </div>
 `;
 let tradeform = document.querySelector("#tradeform");
 tradebtn.addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector("#center").innerHTML = "";
+    document.querySelector("#hidden_form").innerHTML = "";
     tradeform.innerHTML = html;
 })
 
@@ -749,47 +748,30 @@ tradeform.addEventListener("submit", (e) => {
     let trade_receiving_gym = document.querySelector("#trade_receiving_gym").value;
     let trade_receiving_time = document.querySelector("#trade_receiving_time").value;
     let trade_sending_gym = document.querySelector("#trade_sending_gym").value;
+    let trade_sending_time = document.querySelector("#trade_sending_time").value;
     let trade_team = document.querySelector("#trade_team").value;
-    let trade__trading_team = document.querySelector("#trade__trading_team").value;
+    let trade_trading_team = document.querySelector("#trade_trading_team").value;
+    // console.log(url);
+    // combine title and description into one object
+    let trade_details = {
+        league: trade_league,
+        receiving_gym: trade_receiving_gym,
+        receiving_time: trade_receiving_time,
+        sending_gym: trade_sending_gym,
+        sending_time: trade_sending_time,
+        team: trade_team,
+        trading_team: trade_trading_team
+    }
+    console.log(trade_details);
 
-    task
-        .then(snapshot => snapshot.ref.getDownloadURL())
-        .then((url) => {
-            // console.log(url);
-            // combine title and description into one object
-            let trade_details = {
-                league: trade_league,
-                receiving_gym: trade_receiving_gym,
-                receiving_time: trade_receiving_time,
-                sending_gym: rental_pick_up_date,
-                sending_time: trade_sending_gym,
-                team: trade_team,
-                trading_team: trade__trading_team
+    // add recipe details into firebase
+    db.collection("trades").add(trade_details).then((data) => {
+        console.log("trade added");
+        // console.log(data.id)
 
-
-            }
-
-
-            console.log(trade_details);
-
-
-
-
-            // test
-            // console.log(recipe_title, "=>", recipe_description);
-            // console.log(recipe_details);
-
-            // add recipe details into firebase
-            db.collection("trades").add(trade_details).then((data) => {
-                console.log("trade added");
-                // console.log(data.id)
-
-                // 1. reset the form
-                tradeform.reset();
-                // 2. display success message for the user
-                alert("You successfully submitted a trade");
-            })
-        })
-
-
+        // 1. reset the form
+        tradeform.reset();
+        // 2. display success message for the user
+        alert("You successfully submitted a trade");
+    })
 })
