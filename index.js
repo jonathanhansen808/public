@@ -4,7 +4,6 @@ let loggedadminlinks = document.querySelectorAll(".loggedadmin")
 
 // content div
 let content = document.querySelector("#content");
-let center = document.querySelector("#center");
 let review_content = document.querySelector('#review_content');
 // this area needs to be fixed - not sure exactly how
 function configureContent(user_) {
@@ -683,6 +682,7 @@ search_button.addEventListener("click", () => {
 })
 
 // trade submission form
+let center = document.querySelector("#center");
 let tradebtn = document.querySelector("#tradebtn");
 let html = `<div class="is-size-2  title has-background-primary-dark has-text-centered has-text-white">Post your Trade</div>
             <div class="field">
