@@ -10,12 +10,12 @@ let review_content = document.querySelector('#review_content');
 function configureContent(user_) {
     if (user_) {
 
-        db.collection("trades").get().then((data) => {
-            let trades = data.docs;
+        db.collection("forms").get().then((data) => {
+            let forms = data.docs;
 
             center.innerHTML = "";
 
-            trades.forEach((trade) => {
+            forms.forEach((form) => {
                 center.innerHTML += `
                 <div class="box">
                     <h1 class="title is-size-3 has-background-primary-light has-text-danger-dark">${stadium.data().stadium_name}</h1>
