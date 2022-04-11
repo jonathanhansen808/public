@@ -3,40 +3,40 @@ let loggedinlinks = document.querySelectorAll(".loggedin");
 
 // content div
 let content = document.querySelector("#content");
-// let review_content = document.querySelector('#review_content');
+let review_content = document.querySelector('#review_content');
 
-// function configureContent(user_) {
-//     if (user_) {
+function configureContent(user_) {
+    if (user_) {
 
-//         db.collection("reviews").get().then((data) => {
-//             let stadiums = data.docs;
+        db.collection("reviews").get().then((data) => {
+            let stadiums = data.docs;
 
-//             let content = document.querySelector("#center");
-//             review_content.innerHTML = "";
+            let content = document.querySelector("#center");
+            review_content.innerHTML = "";
 
-//             stadiums.forEach((stadium) => {
-//                 review_content.innerHTML += `
-//                 <div class="box">
-//                     <h1 class="title is-size-3 has-background-primary-light has-text-danger-dark">${stadium.data().stadium_name}</h1>
-//                     <p class="has-text-right">Submitted by: ${stadium.data().email}</p>
-//                     <p>${stadium.data().stadium_score}</p>
-//                     <p>${stadium.data().stadium_review}</p>
-//                     <div class="has-text-centered">
-//                         <p class="m-2 ml-auto mr-auto is-centered"><img width="600" src="${stadium.data().url}" /></p>
-//                     </div>
-//                 </div>
-//                 `;
-//             })
-//         })
+            stadiums.forEach((stadium) => {
+                review_content.innerHTML += `
+                <div class="box">
+                    <h1 class="title is-size-3 has-background-primary-light has-text-danger-dark">${stadium.data().stadium_name}</h1>
+                    <p class="has-text-right">Submitted by: ${stadium.data().email}</p>
+                    <p>${stadium.data().stadium_score}</p>
+                    <p>${stadium.data().stadium_review}</p>
+                    <div class="has-text-centered">
+                        <p class="m-2 ml-auto mr-auto is-centered"><img width="600" src="${stadium.data().url}" /></p>
+                    </div>
+                </div>
+                `;
+            })
+        })
 
-//     } else {
-//         review_content.innerHTML = "";
-//         review_content.innerHTML = `
-//         <div class="has-text-centered mb-3">
-//         <p class="is-size-5">Be sure to sign up at the top-right of the page to be able to look at? </p>
-//         </div>`
-//     }
-// }
+    } else {
+        review_content.innerHTML = "";
+        review_content.innerHTML = `
+        <div class="has-text-centered mb-3">
+        <p class="is-size-5">Be sure to sign up at the top-right of the page to be able to look at? </p>
+        </div>`
+    }
+}
 
 function configureNav(user) {
     // check is user is passed and signed in
