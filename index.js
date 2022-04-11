@@ -5,7 +5,7 @@ let loggedinlinks = document.querySelectorAll(".loggedin");
 let content = document.querySelector("#content");
 let tradebtn = document.querySelector("#tradebtn");
 let center = document.querySelector("#center");
-// let review_content = document.querySelector('#review_content');
+let review_content = document.querySelector('#review_content');
 
 function configureContent(user_) {
     if (user_) {
@@ -31,8 +31,8 @@ function configureContent(user_) {
         })
 
     } else {
-        center.innerHTML = "";
-        center.innerHTML = `
+        review_content.innerHTML = "";
+        review_content.innerHTML = `
         <div class="has-text-centered mb-3">
         <p class="is-size-5">Be sure to sign up at the top-right of the page to be able to look at the content!</p>
         </div>`
