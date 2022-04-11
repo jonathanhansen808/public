@@ -682,7 +682,6 @@ search_button.addEventListener("click", () => {
 })
 
 // trade submission form
-let tradebtn = document.querySelector("#tradebtn");
 let html = `<div class="is-size-2  title has-background-primary-dark has-text-centered has-text-white">Post your Trade</div>
             <div class="field">
                 <label class="label has-text-white">What league are you in?</label>
