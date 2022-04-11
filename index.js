@@ -1,5 +1,6 @@
 let loggedoutlinks = document.querySelectorAll(".loggedout");
 let loggedinlinks = document.querySelectorAll(".loggedin");
+let loggedadminlinks = document.querySelectorAll(".loggedadmin")
 
 // content div
 let content = document.querySelector("#content");
