@@ -11,7 +11,7 @@ function configureContent(user_) {
         db.collection("reviews").get().then((data) => {
             let stadiums = data.docs;
 
-            let content = document.querySelector("#center");
+            let content = document.querySelector("#content");
             review_content.innerHTML = "";
 
             stadiums.forEach((stadium) => {
