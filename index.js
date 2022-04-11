@@ -3,19 +3,20 @@ let loggedinlinks = document.querySelectorAll(".loggedin");
 
 // content div
 let content = document.querySelector("#content");
-let review_content = document.querySelector('#review_content');
+let tradebtn = document.querySelector("#tradebtn");
+let center = document.querySelector("#center");
+// let review_content = document.querySelector('#review_content');
 
 function configureContent(user_) {
     if (user_) {
 
-        db.collection("reviews").get().then((data) => {
-            let stadiums = data.docs;
+        db.collection("trades").get().then((data) => {
+            let trades = data.docs;
 
-            let content = document.querySelector("#content");
-            review_content.innerHTML = "";
+            center.innerHTML = "";
 
-            stadiums.forEach((stadium) => {
-                review_content.innerHTML += `
+            trades.forEach((trade) => {
+                center.innerHTML += `
                 <div class="box">
                     <h1 class="title is-size-3 has-background-primary-light has-text-danger-dark">${stadium.data().stadium_name}</h1>
                     <p class="has-text-right">Submitted by: ${stadium.data().email}</p>
@@ -30,10 +31,10 @@ function configureContent(user_) {
         })
 
     } else {
-        review_content.innerHTML = "";
-        review_content.innerHTML = `
+        center.innerHTML = "";
+        center.innerHTML = `
         <div class="has-text-centered mb-3">
-        <p class="is-size-5">Be sure to sign up at the top-right of the page to be able to look at? </p>
+        <p class="is-size-5">Be sure to sign up at the top-right of the page to be able to look at the content!</p>
         </div>`
     }
 }
@@ -682,9 +683,6 @@ search_button.addEventListener("click", () => {
 })
 
 // trade submission form
-
-let tradebtn = document.querySelector("#tradebtn");
-let hidden_form = document.querySelector("#hidden_form");
 let html = `<div class="is-size-2  title has-background-primary-dark has-text-centered has-text-white">Post your Trade</div>
             <div class="field">
                 <label class="label has-text-white">What league are you in?</label>
@@ -735,7 +733,7 @@ let html = `<div class="is-size-2  title has-background-primary-dark has-text-ce
 let tradeform = document.querySelector("#tradeform");
 tradebtn.addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector("#hidden_form").innerHTML = "";
+    document.querySelector("#center").innerHTML = "";
     tradeform.innerHTML = html;
 })
 
