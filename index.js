@@ -420,28 +420,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// display only user rentals
-let ownrentals = document.querySelector("#ownrentals")
+// display only coach trades
+let show_trade = document.querySelector("#show_trade")
 
-ownrentals.addEventListener("click", () => {
-    db.collection("rentals").where("email", "==", auth.currentUser.email).get().then((data) => {
-        let rental = data.docs;
+show_trade.addEventListener("click", () => {
+    db.collection("trade_details").where("email", "==", auth.currentUser.email).get().then((data) => {
+        let trade2 = data.docs;
         // empty content div
-        content.innerHTML = "";
+        content2.innerHTML = "";
 
         // loop through array
-        rental.forEach((rental) => {
-            content.innerHTML += `
+        trade2.forEach((rental) => {
+            content2.innerHTML += `
             <div class="box">
-            <h1 class="title is-size-3 has-background-success-light p-2"> Submitted by ${rental.data().email}</h1>
-            <p class="has-text-right has-text-danger"> ${rental.data().pick_up_address}</p>
-            <p class="has-text-right has-text-danger"> ${rental.data().drop_off_address}</p>
-            <p class="has-text-right has-text-danger"> ${rental.data().pick_up_date}</p>
-            <p class="has-text-right has-text-danger"> ${rental.data().drop_off_date}</p>
-            <p class="has-text-left has-text-success"> ${rental.data().vehicle}</p>
-            <p class="has-text-left has-text-success"> ${rental.data().color}</p>
-            <p class="has-text-left has-text-success"> ${rental.data().accomodations}</p>
-            <p class="m-2"><img width="200" src="${rental.data().url}"/></p>
+            <h1 class="title is-size-3 has-background-success-light p-2"> Submitted by ${trade2.data().email}</h1>
+            <p class="has-text-right has-text-danger"> ${trade2.data().email}</p>
+            <p class="has-text-right has-text-danger"> ${trade2.data().league}</p>
+            <p class="has-text-right has-text-danger"> ${trade2.data().receiving_team}</p>
+            <p class="has-text-right has-text-danger"> ${trade2.data().receiving_time}</p>
+            <p class="has-text-left has-text-success"> ${trade2.data().trading_team}</p>
+            <p class="has-text-left has-text-success"> ${trade2.data().trading_time}</p>
             // adjust here with form stuff
           </div>    
         `;
