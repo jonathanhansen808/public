@@ -683,6 +683,8 @@ search_button.addEventListener("click", () => {
 })
 
 // trade submission form
+let tradebtn = document.querySelector("#tradebtn");
+let main = document.querySelector("#trade_form");
 let html = `<div class="is-size-2  title has-background-primary-dark has-text-centered has-text-white">Post your Trade</div>
             <div class="field">
                 <label class="label has-text-white">What league are you in?</label>
@@ -733,9 +735,40 @@ let html = `<div class="is-size-2  title has-background-primary-dark has-text-ce
 let tradeform = document.querySelector("#tradeform");
 tradebtn.addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelector("#center").innerHTML = "";
+    document.querySelector("#tradeform").innerHTML = "";
     tradeform.innerHTML = html;
-})
+});
+
+
+// availability submission form
+let availbtn = document.querySelector("#availbtn");
+let main2 = document.querySelector("#avail_form");
+let html2 = `<div class="is-size-2  title has-background-primary-dark has-text-centered has-text-white">Post your Trade</div>
+            <div class="field">
+                <label class="label has-text-white">What league are you in?</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="e.g. League 1" id="trade_league">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label has-text-white">What nights of the week will work best?</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="e.g. Court 1" id="trade_receiving_gym">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label has-text-white">What time slot will work best?</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="e.g. 6 pm" id="trade_receiving_time"">
+                </div>
+              </div>
+`;
+let avail_form = document.querySelector("#avail_form");
+availbtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.querySelector("#avail_form").innerHTML = "";
+    avail_form.innerHTML = html2;
+});
 
 // store trade data in database
 tradeform.addEventListener("submit", (e) => {
