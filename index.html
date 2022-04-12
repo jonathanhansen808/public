@@ -559,19 +559,19 @@
                     <label class="label">What League are you in?</label>
                     <div class="control">
                         <div class="select">
-                            <select>
-                                <option>Select dropdown</option>
-                                <option>Boys 12th Grade</option>
-                                <option>Boys 11th Grade</option>
-                                <option>Boys 10th Grade</option>
-                                <option>Boys 9th Grade</option>
-                                <option>Girls 9th-12th Grade</option>
-                                <option>Boys 8th Grade</option>
-                                <option>Boys 7th Grade</option>
-                                <option>Girls 7th-8th Grade</option>
-                                <option>Boys 6th Grade</option>
-                                <option>Boys 5th Grade</option>
-                                <option>Girls 5th-6th Grade</option>
+                            <select id="availability_team">
+                                <option value="">Select dropdown</option>
+                                <option value="Boys 12th Grade">Boys 12th Grade</option>
+                                <option value="Boys 11th Grade">Boys 11th Grade</option>
+                                <option value="Boys 10th Grade">Boys 10th Grade</option>
+                                <option value="Boys 9th Grade">Boys 9th Grade</option>
+                                <option value="Boys 9th-12th Grade">Girls 9th-12th Grade</option>
+                                <option value="Boys 8th Grade">Boys 8th Grade</option>
+                                <option value="Boys 7th Grade">Boys 7th Grade</option>
+                                <option value="Boys 7th-8th Grade">Girls 7th-8th Grade</option>
+                                <option value="Boys 6th Grade">Boys 6th Grade</option>
+                                <option value="Boys 5th Grade">Boys 5th Grade</option>
+                                <option value="Boys 5th-6th Grade">Girls 5th-6th Grade</option>
                             </select>
                         </div>
                     </div>
@@ -581,12 +581,12 @@
                     <label class="label">What weekday works best for your team?</label>
                     <div class="control">
                         <div class="select">
-                            <select>
-                                <option>Monday</option>
-                                <option>Tuesday</option>
-                                <option>Wednesday</option>
-                                <option>Thursday</option>
-                                <option>Friday</option>
+                            <select id="availability_day">
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
                             </select>
                         </div>
                     </div>
@@ -596,15 +596,15 @@
                     <label class="label">What time works best for your team?</label>
                     <div class="control">
                         <div class="select">
-                            <select>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                                <option>11</option>
+                            <select id="availability_time">
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
                             </select>
                         </div>
                     </div>
@@ -612,7 +612,7 @@
 
                 <div class="field is-grouped">
                     <div class="control">
-                        <button class="button is-link">Submit</button>
+                        <button class="button is-link" onclick="addAvailability()">Submit</button>
                     </div>
                     <div class="control">
                         <button class="button is-link is-light">Cancel</button>

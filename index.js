@@ -422,12 +422,33 @@ function addTrade() {
         receiving_team: receiving_team,
         trading_time: sending_time,
         receiving_time: receiving_time,
-        email: auth.currentUser.email,
+        email: auth.currentUser.email
     }
 
     alert(trade_details.email);
 
     db.collection("trade_details").add(trade_details).then(() => {
+        console.log('review_added');
+
+    })
+}
+
+function addAvailability() {
+    let availability_team = document.querySelector("#availability_team").value;
+    let availability_day = document.querySelector("#availability_day").value;
+    let availability_time = document.querySelector("#availability_time").value;
+
+
+    let availability_details = {
+        league: availability_team,
+        day_of_week: availability_day,
+        time: availability_time,
+        email: auth.currentUser.email
+    }
+
+    alert(availability_details.email);
+
+    db.collection("coach_availability").add(availability_details).then(() => {
         console.log('review_added');
 
     })
