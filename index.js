@@ -241,7 +241,6 @@ let html = `<div class="is-size-2  title has-background-primary-dark has-text-ce
                   <input class="input" type="text" placeholder="e.g. 6 pm" id="trade_receiving_time"">
                 </div>
               </div>
-    
                 
               <div class="field">
                 <label class="label has-text-white">What court will you be trading?</label>
@@ -344,42 +343,81 @@ tradeform.addEventListener("submit", (e) => {
     })
 })
 
+// Loads trade and availability pop ups for Bulma Form Buttons on left side 
+document.addEventListener('DOMContentLoaded', () => {
+    // Functions to open and close a modal
+    function openModal($el) {
+        $el.classList.add('is-active');
+    }
+
+    function closeModal($el) {
+        $el.classList.remove('is-active');
+    }
+
+    function closeAllModals() {
+        (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+            closeModal($modal);
+        });
+    }
+    // Add a click event on buttons to open a specific modal
+    (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+        const modal = $trigger.dataset.target;
+        const $target = document.getElementById(modal);
+        console.log($target);
+
+        $trigger.addEventListener('click', () => {
+            openModal($target);
+        });
+    });
+    // Add a click event on various child elements to close the parent modal
+    (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
+        const $target = $close.closest('.modal');
+
+        $close.addEventListener('click', () => {
+            closeModal($target);
+        });
+    });
+    // Add a keyboard event to close all modals
+    document.addEventListener('keydown', (event) => {
+        const e = event || window.event;
+        if (e.keyCode === 27) { // Escape key
+            closeAllModals();
+        }
+    });
+});
+
 
 // attach submit event for reviews 
 
 // store details in FIREBASE
-// let post_comment = document.querySelector('#post_comment');
+// let post_trade = document.querySelector('#post_trade');
 
-// post_comment.addEventListener("click", (e) => {
+// post_trade.addEventListener("click", (e) => {
 //     e.preventDefault();
 //     // grab review 
-//     let stadium = document.querySelector("#stadium").value;
-//     let score = document.querySelector("#score").value;
-//     let review = document.querySelector("#review").value;
+//     let trade_league = document.querySelector("#trade_league").value;
+//     console.log(trade_league);
+//     let trade_team = document.querySelector("#trade_team").value;
+//     let receiving_team = document.querySelector("#receiving_team").value;
+//     let sending_time = document.querySelector("#sending_time").value;
+//     let receiving_time = document.querySelector("#receiving_time").value;
 
-//     let file = document.querySelector("#stadium_image").files[0];
-//     let image = new Date() + "_" + file.name;
-
-//     const task = ref.child(image).put(file);
 
 //     task
-//         .then(snapshot => snapshot.ref.getDownloadURL())
 //         .then((url) => {
-//             let comment_details = {
-//                 stadium_name: stadium,
-//                 stadium_score: score,
-//                 stadium_review: review,
+//             let trade_details = {
+//                 league: trade_league,
+//                 trading_team: trade_team,
+//                 receiving_team: receiving_team,
+//                 trading_time: sending_time,
+//                 receiving_time: receiving_time,
 //                 email: auth.currentUser.email,
-//                 url: url
 //             }
+//             console.log(trade_details);
 
-//             db.collection("reviews").add(comment_details).then((data) => {
-//                 console.log("review added");
+//             db.collection("trade_details").add(trade_details).then((data) => {
+//                 console.log("trade added");
 //             })
-//             document.getElementById('stadium').value = '';
-//             document.getElementById('score').value = '';
-//             document.getElementById('review').value = '';
-//             document.getElementById("stadium_image").value = "";
 //         })
 // })
 

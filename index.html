@@ -312,14 +312,19 @@
                         </div> -->
                         <!-- add logged in for all 4 divs below -->
                         <div class="has-text-centered mt-2">
-                            <label class="has-text-centered mt-2 " id=" trade_form">Submit a trade
-                                submission:</label>
+                            <label class="has-text-centered mt-2 " id=" trade_form">Submit a trade submission:</label>
+                            <button class="js-modal-trigger button is-link" data-target="submit_trade_modal">
+                                Form
+                            </button>
                             <a id="tradebtn" class="">Form</a>
                             <form id="trade_Form"></form>
                         </div>
+
                         <div class="has-text-centered mt-2">
-                            <label class="has-text-centered mt-2 " id=" availform">Coaches Submit
-                                Availability:</label>
+                            <label class="has-text-centered mt-2 " id=" availform">Coaches Submit Availability:</label>
+                            <button class="js-modal-trigger button is-link" data-target="coaches-availability-modal">
+                                Form
+                            </button>
                             <a id="availbtn" class="">Form</a>
                             <form id="availform"></form>
                         </div>
@@ -376,13 +381,259 @@
             </div>
         </div>
 
-        <!-- review section -->
-        <div class="section">
-            <div class="container">
-                <!-- default columns take whole size 213 -->
-                <div class="columns">
-                    <!-- site navigation (left column)-->
-                    <!-- <div class="column has-background-black">
+
+        <!-- Footer -->
+        <footer class="footer has-background-black has-text-weight-bold has-text-white">
+            <div class="content has-text-centered">
+                <p>Copyright ©2022 OMGBA All Rights Reserved.</p>
+                <a href="http://facebook.com"><i class="fab fa-2x fa-facebook"></i></a>
+                <a href="http://twitter.com"><i class="fab fa-2x fa-twitter"></i></a>
+                <!-- <a href="http://reddit.com"><i class="fab fa-2x fa-reddit"></i></a>
+                        <a href="http://stubhub.com"><i class="fas fa-2x fa-ticket-alt"></i></a> -->
+
+            </div>
+
+        </footer>
+    </div>
+
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+    <script>
+        // TODO
+        // Copy **only** your firebaseConfig from Google Firebae and add it below
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDNprPaFsKC76OZGQPrvs-n44FJ9oC6tLM",
+            authDomain: "omgba-b2081.firebaseapp.com",
+            projectId: "omgba-b2081",
+            storageBucket: "omgba-b2081.appspot.com",
+            messagingSenderId: "460963679506",
+            appId: "1:460963679506:web:b8eb4deb8dae7b7c31f7cb"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        // define authentication variable
+        let auth = firebase.auth();
+        let db = firebase.firestore();
+        let ref = firebase.storage().ref();
+    </script>
+
+
+    <!-- JavaScript -->
+    <script src="index.js"></script>
+
+    <div id="submit_trade_modal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <div class="field">
+                    <label class="label">What League are you in?</label>
+                    <div class="control">
+                        <div class="select" id="trade_league">
+                            <select id="trade_league">
+                                <option>Select dropdown</option>
+                                <option>Boys 12th Grade</option>
+                                <option>Boys 11th Grade</option>
+                                <option>Boys 10th Grade</option>
+                                <option>Boys 9th Grade</option>
+                                <option>Girls 9th-12th Grade</option>
+                                <option>Boys 8th Grade</option>
+                                <option>Boys 7th Grade</option>
+                                <option>Girls 7th-8th Grade</option>
+                                <option>Boys 6th Grade</option>
+                                <option>Boys 5th Grade</option>
+                                <option>Girls 5th-6th Grade</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">What team are you?</label>
+                    <div class="control">
+                        <div class="select" id="trade_team">
+                            <select id="trade_team">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">What team are you trading with?</label>
+                    <div class="control">
+                        <div class="select" id="receiving_team">
+                            <select id="receiving_team">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">What time slot are you SENDING to another team?</label>
+                    <div class="control">
+                        <div class="select" id="sending_time">
+                            <select id="sending_time">
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">What time slot are you RECEIVING in the trade?</label>
+                    <div class="control">
+                        <div class="select" id="receiving_time">
+                            <select id="receiving_time">
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link" type="reset" id="post_trade">Submit</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-link is-light">Cancel</button>
+                    </div>
+                </div>
+                <!-- Your content -->
+            </div>
+        </div>
+
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+
+
+    <div id="coaches-availability-modal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <div class="field">
+                    <label class="label">What League are you in?</label>
+                    <div class="control">
+                        <div class="select">
+                            <select>
+                                <option>Select dropdown</option>
+                                <option>Boys 12th Grade</option>
+                                <option>Boys 11th Grade</option>
+                                <option>Boys 10th Grade</option>
+                                <option>Boys 9th Grade</option>
+                                <option>Girls 9th-12th Grade</option>
+                                <option>Boys 8th Grade</option>
+                                <option>Boys 7th Grade</option>
+                                <option>Girls 7th-8th Grade</option>
+                                <option>Boys 6th Grade</option>
+                                <option>Boys 5th Grade</option>
+                                <option>Girls 5th-6th Grade</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">What weekday works best for your team?</label>
+                    <div class="control">
+                        <div class="select">
+                            <select>
+                                <option>Monday</option>
+                                <option>Tuesday</option>
+                                <option>Wednesday</option>
+                                <option>Thursday</option>
+                                <option>Friday</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">What time works best for your team?</label>
+                    <div class="control">
+                        <div class="select">
+                            <select>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link">Submit</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-link is-light">Cancel</button>
+                    </div>
+                </div>
+                <!-- Your content -->
+            </div>
+        </div>
+
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+</body>
+
+</html>
+
+<!-- JS code to add content when signed in  -->
+<!-- review section -->
+<!-- <div class="section"> -->
+<!-- <div class="container"> -->
+<!-- default columns take whole size 213 -->
+<!-- <div class="columns"> -->
+<!-- site navigation (left column)-->
+<!-- <div class="column has-background-black">
                         <p class="has-background-danger-dark p-1 mt-5"></p>
                         <p class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-4">
                             Coach Sign-Up and Sign-In
@@ -435,13 +686,13 @@
                 </div>
             </div> -->
 
-                    <!-- COVID update column for 2021 season -->
-                    <!-- <div class="section">
+<!-- COVID update column for 2021 season -->
+<!-- <div class="section">
                         <div class="container"> -->
-                    <!-- default columns take whole size 213 -->
-                    <!-- <div class="columns"> -->
-                    <!-- site navigation (left column)-->
-                    <!-- <div class="column has-background-black">
+<!-- default columns take whole size 213 -->
+<!-- <div class="columns"> -->
+<!-- site navigation (left column)-->
+<!-- <div class="column has-background-black">
                                     <p class="has-background-danger-dark p-1 mt-5"></p>
                                     <p
                                         class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-4">
@@ -456,16 +707,16 @@
                                             Add content here </a>
                                     </p>
                                 </div> -->
-                    <!-- </div>
+<!-- </div>
                         </div>
                     </div> -->
 
-                    <!-- <div class="section">
+<!-- <div class="section">
                         <div class="container"> -->
-                    <!-- default columns take whole size 213 -->
-                    <!-- <div class="columns"> -->
-                    <!-- site navigation (left column)-->
-                    <!-- <div class="column has-background-black">
+<!-- default columns take whole size 213 -->
+<!-- <div class="columns"> -->
+<!-- site navigation (left column)-->
+<!-- <div class="column has-background-black">
                                     <p class="has-background-danger-dark p-1 mt-5"></p>
                                     <p
                                         class="menu-label has-text-centered  has-text-danger-dark has-text-weight-bold is-size-4">
@@ -487,67 +738,7 @@
                                         Add content here
                                     </p>
                                 </div> -->
-                    <!-- </div>
+<!-- </div>
                         </div>
                     </div> -->
-                </div>
-
-
-
-                <!-- Footer -->
-                <footer class="footer has-background-black has-text-weight-bold has-text-white">
-                    <div class="content has-text-centered">
-                        <p>Copyright ©2022 OMGBA All Rights Reserved.</p>
-                        <a href="http://facebook.com"><i class="fab fa-2x fa-facebook"></i></a>
-                        <a href="http://twitter.com"><i class="fab fa-2x fa-twitter"></i></a>
-                        <!-- <a href="http://reddit.com"><i class="fab fa-2x fa-reddit"></i></a>
-                        <a href="http://stubhub.com"><i class="fas fa-2x fa-ticket-alt"></i></a> -->
-
-                    </div>
-                </footer>
-            </div>
-
-            <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-            <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-            <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-
-            <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-            <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
-
-            <!-- Add Firebase products that you want to use -->
-            <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
-
-            <script>
-                // TODO
-                // Copy **only** your firebaseConfig from Google Firebae and add it below
-                // Your web app's Firebase configuration
-                const firebaseConfig = {
-                    apiKey: "AIzaSyDNprPaFsKC76OZGQPrvs-n44FJ9oC6tLM",
-                    authDomain: "omgba-b2081.firebaseapp.com",
-                    projectId: "omgba-b2081",
-                    storageBucket: "omgba-b2081.appspot.com",
-                    messagingSenderId: "460963679506",
-                    appId: "1:460963679506:web:b8eb4deb8dae7b7c31f7cb"
-                };
-
-
-                // Initialize Firebase
-
-
-                // Initialize Firebase
-                firebase.initializeApp(firebaseConfig);
-                // define authentication variable
-                let auth = firebase.auth();
-                let db = firebase.firestore();
-                let ref = firebase.storage().ref();
-            </script>
-
-
-            <!-- JavaScript -->
-            <script src="index.js"></script>
-
-</body>
-
-</html>
+<!-- </div> -->
