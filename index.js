@@ -419,6 +419,39 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+// display only user rentals
+let ownrentals = document.querySelector("#ownrentals")
+
+ownrentals.addEventListener("click", () => {
+    db.collection("rentals").where("email", "==", auth.currentUser.email).get().then((data) => {
+        let rental = data.docs;
+        // empty content div
+        content.innerHTML = "";
+
+        // loop through array
+        rental.forEach((rental) => {
+            content.innerHTML += `
+            <div class="box">
+            <h1 class="title is-size-3 has-background-success-light p-2"> Submitted by ${rental.data().email}</h1>
+            <p class="has-text-right has-text-danger"> ${rental.data().pick_up_address}</p>
+            <p class="has-text-right has-text-danger"> ${rental.data().drop_off_address}</p>
+            <p class="has-text-right has-text-danger"> ${rental.data().pick_up_date}</p>
+            <p class="has-text-right has-text-danger"> ${rental.data().drop_off_date}</p>
+            <p class="has-text-left has-text-success"> ${rental.data().vehicle}</p>
+            <p class="has-text-left has-text-success"> ${rental.data().color}</p>
+            <p class="has-text-left has-text-success"> ${rental.data().accomodations}</p>
+            <p class="m-2"><img width="200" src="${rental.data().url}"/></p>
+            // adjust here with form stuff
+          </div>    
+        `;
+            // console.log(item.data().title,"=>",item.data().desc)
+            // adjust title and description for each specific modal
+        })
+    })
+})
+
+
 // attach submit event for reviews 
 
 // store details in FIREBASE
