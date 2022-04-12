@@ -71,7 +71,6 @@ admin_signinModalBg.addEventListener('click', () => {
 
 // Left side buttons 
 const dropdowns = document.querySelectorAll('.dropdown:not(.is-hoverable)');
-
 if (dropdowns.length > 0) {
     // For each dropdown, add event handler to open on click.
     dropdowns.forEach(function (el) {
@@ -80,13 +79,11 @@ if (dropdowns.length > 0) {
             el.classList.toggle('is-active');
         });
     });
-
     // If user clicks outside dropdown, close it.
     document.addEventListener('click', function (e) {
         closeDropdowns();
     });
 }
-
 /*
  * Close dropdowns by removing `is-active` class.
  */
@@ -177,10 +174,8 @@ auth.onAuthStateChanged((user) => {
 
 // Search Bar 
 // Search bar would be set up for Admin to search through trades
-// search
 let search_button = document.querySelector("#search_button");
 // attach click event
-
 search_button.addEventListener("click", () => {
     // grab content of input with id search_box
 
@@ -220,60 +215,60 @@ search_button.addEventListener("click", () => {
 })
 
 // trade submission form
-let tradebtn = document.querySelector("#tradebtn");
-let main = document.querySelector("#trade_form");
-let html = `<div class="is-size-2  title has-background-primary-dark has-text-centered has-text-white">Post your Trade</div>
-            <div class="field">
-                <label class="label has-text-white">What league are you in?</label>
-                <div class="control">
-                  <input class="input" type="text" placeholder="e.g. League 1" id="trade_league">
-                </div>
-              </div>
-              <div class="field">
-                <label class="label has-text-white">What court will you be trading for?</label>
-                <div class="control">
-                  <input class="input" type="text" placeholder="e.g. Court 1" id="trade_receiving_gym">
-                </div>
-              </div>
-              <div class="field">
-                <label class="label has-text-white">What time slot will you be trading for?</label>
-                <div class="control">
-                  <input class="input" type="text" placeholder="e.g. 6 pm" id="trade_receiving_time"">
-                </div>
-              </div>
-                
-              <div class="field">
-                <label class="label has-text-white">What court will you be trading?</label>
-                <div class="control">
-                  <input class="input" type="text" placeholder="e.g. Court 2" id="trade_sending_gym">
-                </div>
-              </div>
-              <div class="field">
-                <label class="label has-text-white">What time slot will you be trading?</label>
-                <div class="control">
-                  <input class="input" type="text" placeholder="e.g. 6 pm" id="trade_sending_time">
-                </div>
-              </div>
-              
-              <div class="field">
-                <label class="label has-text-white">What team are you</label>
-                <div class="control">
-                  <input class="input" type="text" placeholder="e.g. Team 1" id="trade_team">
-                </div>
-              </div>
-              <div class="field">
-                <label class="label has-text-white">What team are you trading with?</label>
-                <div class="control">
-                  <input class="input" type="text" placeholder="e.g. Team 2" id="trade_trading_team">
-                </div>
-              </div>
-`;
-let tradeform = document.querySelector("#tradeform");
-tradebtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    document.querySelector("#tradeform").innerHTML = "";
-    tradeform.innerHTML = html;
-});
+// let tradebtn = document.querySelector("#tradebtn");
+// let main = document.querySelector("#trade_form");
+// let html = `<div class="is-size-2  title has-background-primary-dark has-text-centered has-text-white">Post your Trade</div>
+//             <div class="field">
+//                 <label class="label has-text-white">What league are you in?</label>
+//                 <div class="control">
+//                   <input class="input" type="text" placeholder="e.g. League 1" id="trade_league">
+//                 </div>
+//               </div>
+//               <div class="field">
+//                 <label class="label has-text-white">What court will you be trading for?</label>
+//                 <div class="control">
+//                   <input class="input" type="text" placeholder="e.g. Court 1" id="trade_receiving_gym">
+//                 </div>
+//               </div>
+//               <div class="field">
+//                 <label class="label has-text-white">What time slot will you be trading for?</label>
+//                 <div class="control">
+//                   <input class="input" type="text" placeholder="e.g. 6 pm" id="trade_receiving_time"">
+//                 </div>
+//               </div>
+
+//               <div class="field">
+//                 <label class="label has-text-white">What court will you be trading?</label>
+//                 <div class="control">
+//                   <input class="input" type="text" placeholder="e.g. Court 2" id="trade_sending_gym">
+//                 </div>
+//               </div>
+//               <div class="field">
+//                 <label class="label has-text-white">What time slot will you be trading?</label>
+//                 <div class="control">
+//                   <input class="input" type="text" placeholder="e.g. 6 pm" id="trade_sending_time">
+//                 </div>
+//               </div>
+
+//               <div class="field">
+//                 <label class="label has-text-white">What team are you</label>
+//                 <div class="control">
+//                   <input class="input" type="text" placeholder="e.g. Team 1" id="trade_team">
+//                 </div>
+//               </div>
+//               <div class="field">
+//                 <label class="label has-text-white">What team are you trading with?</label>
+//                 <div class="control">
+//                   <input class="input" type="text" placeholder="e.g. Team 2" id="trade_trading_team">
+//                 </div>
+//               </div>
+// `;
+// let tradeform = document.querySelector("#tradeform");
+// tradebtn.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     document.querySelector("#tradeform").innerHTML = "";
+//     tradeform.innerHTML = html;
+// });
 
 
 // availability submission form
@@ -305,43 +300,6 @@ availbtn.addEventListener("click", (e) => {
     document.querySelector("#avail_form").innerHTML = "";
     avail_form.innerHTML = html2;
 });
-
-// store trade data in database
-tradeform.addEventListener("submit", (e) => {
-    e.preventDefault()
-    // adjust this part to match form 
-
-    let trade_league = document.querySelector("#trade_league").value;
-    let trade_receiving_gym = document.querySelector("#trade_receiving_gym").value;
-    let trade_receiving_time = document.querySelector("#trade_receiving_time").value;
-    let trade_sending_gym = document.querySelector("#trade_sending_gym").value;
-    let trade_sending_time = document.querySelector("#trade_sending_time").value;
-    let trade_team = document.querySelector("#trade_team").value;
-    let trade_trading_team = document.querySelector("#trade_trading_team").value;
-    // console.log(url);
-    // combine title and description into one object
-    let trade_details = {
-        league: trade_league,
-        receiving_gym: trade_receiving_gym,
-        receiving_time: trade_receiving_time,
-        sending_gym: trade_sending_gym,
-        sending_time: trade_sending_time,
-        team: trade_team,
-        trading_team: trade_trading_team
-    }
-    console.log(trade_details);
-
-    // add recipe details into firebase
-    db.collection("trades").add(trade_details).then((data) => {
-        console.log("trade added");
-        // console.log(data.id)
-
-        // 1. reset the form
-        tradeform.reset();
-        // 2. display success message for the user
-        alert("You successfully submitted a trade");
-    })
-})
 
 
 // store coach avail data in database
@@ -449,83 +407,30 @@ show_trade.addEventListener("click", () => {
     })
 })
 
-
-// attach submit event for reviews 
-
 // store details in FIREBASE
-// let post_trade = document.querySelector('#post_trade');
+function addTrade() {
+    let trade_league = document.querySelector("#trade_league").value;
+    let m = document.querySelector("#post_trade").value;
+    let trade_team = document.querySelector("#trade_team").value;
+    let receiving_team = document.querySelector("#receiving_team").value;
+    let sending_time = document.querySelector("#sending_time").value;
+    let receiving_time = document.querySelector("#receiving_time").value;
 
-// post_trade.addEventListener("click", (e) => {
-//     e.preventDefault();
-//     // grab review 
-//     let trade_league = document.querySelector("#trade_league").value;
-//     console.log(trade_league);
-//     let trade_team = document.querySelector("#trade_team").value;
-//     let receiving_team = document.querySelector("#receiving_team").value;
-//     let sending_time = document.querySelector("#sending_time").value;
-//     let receiving_time = document.querySelector("#receiving_time").value;
+    let trade_details = {
+        league: trade_league,
+        trading_team: trade_team,
+        receiving_team: receiving_team,
+        trading_time: sending_time,
+        receiving_time: receiving_time,
+        email: auth.currentUser.email,
+    }
 
+    alert(trade_details.email);
 
-//     task
-//         .then((url) => {
-//             let trade_details = {
-//                 league: trade_league,
-//                 trading_team: trade_team,
-//                 receiving_team: receiving_team,
-//                 trading_time: sending_time,
-//                 receiving_time: receiving_time,
-//                 email: auth.currentUser.email,
-//             }
-//             console.log(trade_details);
+    db.collection("trade_details").add(trade_details).then(() => {
+        console.log('review_added');
 
-//             db.collection("trade_details").add(trade_details).then((data) => {
-//                 console.log("trade added");
-//             })
-//         })
-// })
+    })
+}
 
-// retrieve data from firebase 
-// db.collection("reviews").get().then((data) => {
-// my data is an array
-// let mydata = data.docs;
-
-// mydata.forEach((item) => {
-//     console.log("the name of the stadium is", item.data().stadium_name);
-//     console.log("the score of the stadium is", item.data().stadium_score);
-//     console.log("the review of the stadium is", item.data().stadium_review);
-
-// })
-// console.log(data.docs[0].data());
-// })
-
-// this area needs to be fixed - not sure exactly how
-// function configureContent(user_) {
-//     if (user_) {
-
-//         db.collection("forms").get().then((data) => {
-//             let forms = data.docs;
-//             center.innerHTML = "";
-
-//             forms.forEach((form) => {
-//                 center.innerHTML += `
-//                 <div class="box">
-//                     <h1 class="title is-size-3 has-background-primary-light has-text-danger-dark">${stadium.data().stadium_name}</h1>
-//                     <p class="has-text-right">Submitted by: ${stadium.data().email}</p>
-//                     <p>${stadium.data().stadium_score}</p>
-//                     <p>${stadium.data().stadium_review}</p>
-//                     <div class="has-text-centered">
-//                         <p class="m-2 ml-auto mr-auto is-centered"><img width="600" src="${stadium.data().url}" /></p>
-//                     </div>
-//                 </div>
-//                 `;
-//             })
-//         })
-
-//     } else {
-//         review_content.innerHTML = "";
-//         review_content.innerHTML = `
-//         <div class="has-text-centered mb-3">
-//         <p class="is-size-5">Be sure to sign up at the top-right of the page to be able to look at the content!</p>
-//         </div>`
-//     }
-// }
+// store trade data in database
