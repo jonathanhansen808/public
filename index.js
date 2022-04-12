@@ -430,7 +430,7 @@ show_trade.addEventListener("click", () => {
         content2.innerHTML = "";
 
         // loop through array
-        trade2.forEach((rental) => {
+        trade2.forEach((trade2) => {
             content2.innerHTML += `
             <div class="box">
             <h1 class="title is-size-3 has-background-success-light p-2"> Submitted by ${trade2.data().email}</h1>
