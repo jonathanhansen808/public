@@ -4,7 +4,6 @@ let loggedadminlinks = document.querySelectorAll(".loggedadmin")
 
 // content div
 let content = document.querySelector("#content");
-let center = document.querySelector("#center");
 let review_content = document.querySelector('#review_content');
 // this area needs to be fixed - not sure exactly how
 function configureContent(user_) {
