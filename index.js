@@ -283,19 +283,19 @@ let html2 = `<div class="is-size-2  title has-background-primary-dark has-text-c
             <div class="field">
                 <label class="label has-text-white">What league are you in?</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="e.g. League 1" id="trade_league">
+                  <input class="input" type="text" placeholder="e.g. League 1" id="avail_league">
                 </div>
               </div>
               <div class="field">
                 <label class="label has-text-white">What nights of the week will work best?</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="e.g. Court 1" id="trade_receiving_gym">
+                  <input class="input" type="text" placeholder="e.g. Court 1" id="avail_day_of_week">
                 </div>
               </div>
               <div class="field">
                 <label class="label has-text-white">What time slot will work best?</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="e.g. 6 pm" id="trade_receiving_time"">
+                  <input class="input" type="text" placeholder="e.g. 6 pm" id="avail_time"">
                 </div>
               </div>
 `;
@@ -340,6 +340,38 @@ tradeform.addEventListener("submit", (e) => {
         tradeform.reset();
         // 2. display success message for the user
         alert("You successfully submitted a trade");
+    })
+})
+
+
+// store coach avail data in database
+avail_form.addEventListener("submit", (e) => {
+    e.preventDefault()
+    // adjust this part to match form 
+
+    let avail_league = document.querySelector("#avail_league").value;
+    let avail_day_of_week = document.querySelector("#avail_day_of_week").value;
+    let avail_time = document.querySelector("#avail_time").value;
+
+    // console.log(url);
+    // combine title and description into one object
+    let avail_details = {
+        league: avail_league,
+        day_of_week: avail_day_of_week,
+        time: avail_time,
+
+    }
+    console.log(avail_details);
+
+    // add recipe details into firebase
+    db.collection("avail_form").add(coach_availability).then((data) => {
+        console.log("availability added");
+        // console.log(data.id)
+
+        // 1. reset the form
+        avail_form.reset();
+        // 2. display success message for the user
+        alert("You successfully submitted your availability");
     })
 })
 
