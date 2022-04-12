@@ -207,7 +207,7 @@ search_button.addEventListener("click", () => {
             <p class="has-text-right has-text-danger"> ${calendar.data().sending_time}</p>
             <p class="has-text-left has-text-success"> ${calendar.data().team}</p>
             <p class="has-text-left has-text-success"> ${calendar.data().trading_team}</p>
-            <p class="m-2"><img width="200" src="${calendar.data().url}"/></p>
+            
             // adjust here with form stuff
           </div>    
         `;
