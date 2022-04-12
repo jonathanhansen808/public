@@ -197,7 +197,7 @@ search_button.addEventListener("click", () => {
         content.innerHTML = "";
 
         // loop through array
-        calendar.forEach((rental) => {
+        calendar.forEach((calendar) => {
             content.innerHTML += `
             <div class="box">
             <h1 class="title is-size-3 has-background-success-light p-2"> ${calendar.data().league}</h1>
