@@ -214,62 +214,6 @@ search_button.addEventListener("click", () => {
     // adjust vehicle modals to be posted on the main page
 })
 
-// trade submission form
-// let tradebtn = document.querySelector("#tradebtn");
-// let main = document.querySelector("#trade_form");
-// let html = `<div class="is-size-2  title has-background-primary-dark has-text-centered has-text-white">Post your Trade</div>
-//             <div class="field">
-//                 <label class="label has-text-white">What league are you in?</label>
-//                 <div class="control">
-//                   <input class="input" type="text" placeholder="e.g. League 1" id="trade_league">
-//                 </div>
-//               </div>
-//               <div class="field">
-//                 <label class="label has-text-white">What court will you be trading for?</label>
-//                 <div class="control">
-//                   <input class="input" type="text" placeholder="e.g. Court 1" id="trade_receiving_gym">
-//                 </div>
-//               </div>
-//               <div class="field">
-//                 <label class="label has-text-white">What time slot will you be trading for?</label>
-//                 <div class="control">
-//                   <input class="input" type="text" placeholder="e.g. 6 pm" id="trade_receiving_time"">
-//                 </div>
-//               </div>
-
-//               <div class="field">
-//                 <label class="label has-text-white">What court will you be trading?</label>
-//                 <div class="control">
-//                   <input class="input" type="text" placeholder="e.g. Court 2" id="trade_sending_gym">
-//                 </div>
-//               </div>
-//               <div class="field">
-//                 <label class="label has-text-white">What time slot will you be trading?</label>
-//                 <div class="control">
-//                   <input class="input" type="text" placeholder="e.g. 6 pm" id="trade_sending_time">
-//                 </div>
-//               </div>
-
-//               <div class="field">
-//                 <label class="label has-text-white">What team are you</label>
-//                 <div class="control">
-//                   <input class="input" type="text" placeholder="e.g. Team 1" id="trade_team">
-//                 </div>
-//               </div>
-//               <div class="field">
-//                 <label class="label has-text-white">What team are you trading with?</label>
-//                 <div class="control">
-//                   <input class="input" type="text" placeholder="e.g. Team 2" id="trade_trading_team">
-//                 </div>
-//               </div>
-// `;
-// let tradeform = document.querySelector("#tradeform");
-// tradebtn.addEventListener("click", (e) => {
-//     e.preventDefault();
-//     document.querySelector("#tradeform").innerHTML = "";
-//     tradeform.innerHTML = html;
-// });
-
 
 // availability submission form
 let availbtn = document.querySelector("#availbtn");
@@ -400,8 +344,6 @@ show_trade.addEventListener("click", () => {
 
           </div>    
         `;
-            // console.log(item.data().title,"=>",item.data().desc)
-            // adjust title and description for each specific modal
         })
     })
 })
