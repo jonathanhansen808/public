@@ -366,12 +366,15 @@ function addTrade() {
         email: auth.currentUser.email
     }
 
-    alert(trade_details.email);
+
 
     db.collection("trade_details").add(trade_details).then(() => {
         console.log('review_added');
+        alert("Trade Submitted Successfully");
 
     })
+    closeAllModals();
+
 }
 
 function addAvailability() {
@@ -387,10 +390,11 @@ function addAvailability() {
         email: auth.currentUser.email
     }
 
-    alert(availability_details.email);
 
     db.collection("coach_availability").add(availability_details).then(() => {
         console.log('review_added');
+        alert("Availability Submitted Successfully");
+
 
     })
 }
