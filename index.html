@@ -215,7 +215,7 @@
                 </div>
                 <!-- can we make this admin sign in to only show for admins -->
                 <div class="navbar-item">
-                    <a id="admin_signinbtn" class="loggedin has-text-grey"> Admin Sign In</a>
+                    <a id="admin_signinbtn" class="loggedin has-text-grey"></a>
                 </div>
                 <div class="navbar-item">
                     <p id="welcome_user" class="loggedin has-text-grey"></p>
@@ -232,7 +232,7 @@
                 <!-- default columns take whole size 213 -->
                 <div class="columns is-centered">
                     <!-- site navigation column (left column)-->
-                    <div class="column is-half has-background-black is-2 has-text-white">
+                    <div class="column is-half has-background-black is-2 has-text-white loggedin">
                         <aside class="menu">
                             <p class="menu-label has-text-centered  has-text-white has-text-weight-bold is-size-6"></p>
                         </aside>
@@ -240,9 +240,9 @@
 
                         <!-- add logged in for all 4 divs below -->
                         <div class="has-text-centered mt-2">
-                            <label class="has-text-centered mt-2 " id=" trade_form">Submit a trade
+                            <label class="has-text-centered mt-2 loggedin" id=" trade_form">Submit a trade
                                 submission:</label><br>
-                            <button class="js-modal-trigger button is-link" data-target="submit_trade_modal">
+                            <button class="js-modal-trigger button is-link loggedin" data-target="submit_trade_modal">
                                 Form
                             </button>
                             <a id="tradebtn" class=""></a>
@@ -250,9 +250,10 @@
                         </div>
 
                         <div class="has-text-centered mt-2">
-                            <label class="has-text-centered mt-2 " id=" availform">Coaches Submit
+                            <label class="has-text-centered mt-2 loggedin" id=" availform">Coaches Submit
                                 Availability:</label><br>
-                            <button class="js-modal-trigger button is-link" data-target="coaches-availability-modal">
+                            <button class="js-modal-trigger button is-link loggedin"
+                                data-target="coaches-availability-modal">
                                 Form
                             </button>
                             <a id="availbtn" class=""></a>
