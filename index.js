@@ -184,26 +184,26 @@ search_button.addEventListener("click", () => {
     // console.log(search_box);
 
     // grab customized data from firebse
-    db.collection("calendar").where("team", "==", search_box).get().then((data) => {
+    db.collection("trade_details").where("email", "==", search_box).get().then((data) => {
         // adjust this rentals if adjust database
         // adjust title for field we choose
-        let calendar = data.docs;
+        let trades = data.docs;
         // empty content div
         content.innerHTML = "";
 
         // loop through array
-        calendar.forEach((calendar) => {
+        trades.forEach((trades) => {
             content.innerHTML += `
             <div class="box">
-            <h1 class="title is-size-3 has-background-success-light p-2"> ${calendar.data().league}</h1>
-            <p class="has-text-right has-text-danger"> ${calendar.data().receiving_gym}</p>
-            <p class="has-text-right has-text-danger"> ${calendar.data().receiving_time}</p>
-            <p class="has-text-right has-text-danger"> ${calendar.data().sending_gym}</p>
-            <p class="has-text-right has-text-danger"> ${calendar.data().sending_time}</p>
-            <p class="has-text-left has-text-success"> ${calendar.data().team}</p>
-            <p class="has-text-left has-text-success"> ${calendar.data().trading_team}</p>
+            <h1 class="title is-size-3 has-background-success-light p-2"> ${trades.data().league}</h1>
+            <p class="has-text-right has-text-danger"> Team to Trade With: ${trades.data().receiving_team}</p>
+            <p class="has-text-right has-text-danger"> Receiving Time:  ${trades.data().receiving_time}</p>
+            <p class="has-text-right has-text-danger"> Team who Posted:  ${trades.data().trading_team}</p>
+            <p class="has-text-right has-text-danger"> Time Posted: ${trades.data().trading_time}</p>
+            <p class="has-text-left has-text-success"> Coach Email: ${trades.data().email}</p>
             
-            // adjust here with form stuff
+            
+            
           </div>    
         `;
             // console.log(item.data().title,"=>",item.data().desc)
