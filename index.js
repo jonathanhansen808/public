@@ -391,14 +391,13 @@ show_trade.addEventListener("click", () => {
         trade2.forEach((trade2) => {
             content2.innerHTML += `
             <div class="box">
-            <h1 class="title is-size-3 has-background-success-light p-2"> Submitted by ${trade2.data().email}</h1>
-            <p class="has-text-right has-text-danger"> ${trade2.data().email}</p>
-            <p class="has-text-right has-text-danger"> ${trade2.data().league}</p>
-            <p class="has-text-right has-text-danger"> ${trade2.data().receiving_team}</p>
-            <p class="has-text-right has-text-danger"> ${trade2.data().receiving_time}</p>
-            <p class="has-text-left has-text-success"> ${trade2.data().trading_team}</p>
-            <p class="has-text-left has-text-success"> ${trade2.data().trading_time}</p>
-            // adjust here with form stuff
+            <h2 class="title is-size-3 has-text-centered has-background-success-light p-2"> Submitted by ${trade2.data().email}</h1>
+            <p class="has-text-centered has-text-success"> League: ${trade2.data().league}</p>
+            <p class="has-text-centered has-text-success"> Team: ${trade2.data().trading_team}</p>
+            <p class="has-text-centered has-text-success"> Trading Time: ${trade2.data().trading_time}</p>
+            <p class="has-text-centered has-text-danger"> Team to Trade With: ${trade2.data().receiving_team}</p>
+            <p class="has-text-centered has-text-danger"> Receiving Time: ${trade2.data().receiving_time}</p>
+
           </div>    
         `;
             // console.log(item.data().title,"=>",item.data().desc)
