@@ -194,6 +194,16 @@ search_button.addEventListener("click", () => {
         // loop through array
         trades.forEach((trades) => {
             content.innerHTML += `
+        <div class="container" id="content">
+            <iframe
+                src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%235A6986&ctz=America%2FChicago&showTitle=1&title=Open%20Gym%20Schedule&showDate=1&mode=WEEK&showNav=1&showTabs=1&src=am1oYW5zZW43QHdpc2MuZWR1&color=%23039BE5"
+                style="border:solid 2px rgb(48, 84, 201)" width="800" height="600" frameborder="0"
+                scrolling="no"></iframe>
+            <p
+                class="has-background-danger-dark p-1 mt-5 menu-label has-text-centered  has-text-white has-text-weight-bold is-size-4">
+                For enhanced features click on Google
+                Calendar button in lower right corner.</p>
+        </div>
             <div class="box">
             <h1 class="title is-size-3 has-background-success-light p-2"> ${trades.data().league}</h1>
             <p class="has-text-right has-text-danger"> Team to Trade With: ${trades.data().receiving_team}</p>
@@ -326,7 +336,8 @@ document.addEventListener('DOMContentLoaded', () => {
 let show_trade = document.querySelector("#show_trade")
 
 show_trade.addEventListener("click", () => {
-    db.collection("trade_details").where("email", "==", auth.currentUser.email).get().then((data) => {
+    db.collection("trade_details").get().then((data) => {
+
         let trade2 = data.docs;
         // empty content div
         content2.innerHTML = "";
