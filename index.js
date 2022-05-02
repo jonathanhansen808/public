@@ -188,40 +188,53 @@ search_button.addEventListener("click", () => {
         // adjust this rentals if adjust database
         // adjust title for field we choose
         let trades = data.docs;
+        console.log("printed below");
+        console.log(search_box);
         // empty content div
-        content.innerHTML = "";
+        content.innerHTML = `
+        <div class="container" id="content">
+        <iframe
+            src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%235A6986&ctz=America%2FChicago&showTitle=1&title=Open%20Gym%20Schedule&showDate=1&mode=WEEK&showNav=1&showTabs=1&src=am1oYW5zZW43QHdpc2MuZWR1&color=%23039BE5"
+            style="border:solid 2px rgb(48, 84, 201)" width="800" height="600" frameborder="0"
+            scrolling="no"></iframe>
+        <p
+            class="has-background-danger-dark p-1 mt-5 menu-label has-text-centered  has-text-white has-text-weight-bold is-size-4">
+            For enhanced features click on Google
+            Calendar button in lower right corner.</p>
+   </div>
+    `;
 
         // loop through array
+        if (trades.length == 0) {
+            content.innerHTML += `
+            <div class="box mt-5">
+            <h1 class="title is-size-3 has-background-success-light has-text-danger has-text-centered p-2">No Trades Found Matching: ${search_box}</h1>
+            </div>
+            `
+        } else {
+            content.innerHTML += `
+            <div class="box mt-5">
+            <h1 class="title is-size-3 has-background-success-light has-text-success has-text-centered p-2">Trades Matching: ${search_box}</h1>
+            </div>
+            `
+        }
+
         trades.forEach((trades) => {
             content.innerHTML += `
-        <div class="container" id="content">
-            <iframe
-                src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%235A6986&ctz=America%2FChicago&showTitle=1&title=Open%20Gym%20Schedule&showDate=1&mode=WEEK&showNav=1&showTabs=1&src=am1oYW5zZW43QHdpc2MuZWR1&color=%23039BE5"
-                style="border:solid 2px rgb(48, 84, 201)" width="800" height="600" frameborder="0"
-                scrolling="no"></iframe>
-            <p
-                class="has-background-danger-dark p-1 mt-5 menu-label has-text-centered  has-text-white has-text-weight-bold is-size-4">
-                For enhanced features click on Google
-                Calendar button in lower right corner.</p>
-        </div>
             <div class="box">
             <h1 class="title is-size-3 has-background-success-light p-2"> ${trades.data().league}</h1>
-            <p class="has-text-right has-text-danger"> Team to Trade With: ${trades.data().receiving_team}</p>
-            <p class="has-text-right has-text-danger"> Receiving Time:  ${trades.data().receiving_time}</p>
-            <p class="has-text-right has-text-danger"> Team who Posted:  ${trades.data().trading_team}</p>
-            <p class="has-text-right has-text-danger"> Time Posted: ${trades.data().trading_time}</p>
+            <p class="has-text-right has-text-danger"> Team Requesting Trade: Team ${trades.data().trading_team}</p>
+            <p class="has-text-right has-text-danger"> Team Trading With Team ${trades.data().trading_team}: Team ${trades.data().receiving_team}</p>
+            <p class="has-text-right has-text-danger"> Time Being Received:  ${trades.data().receiving_time} PM</p>
+            <p class="has-text-right has-text-danger"> Time Being Traded: ${trades.data().trading_time} PM</p>
             <p class="has-text-left has-text-success"> Coach Email: ${trades.data().email}</p>
             
             
             
           </div>    
         `;
-            // console.log(item.data().title,"=>",item.data().desc)
-            // adjust title and description for each specific modal
         })
     })
-
-    // adjust vehicle modals to be posted on the main page
 })
 
 
