@@ -168,17 +168,18 @@ let search_button = document.querySelector("#search_button");
 // attach click event
 search_button.addEventListener("click", () => {
     // grab content of input with id search_box
-    let search_box = document.querySelector("#search_box").value;
-    document.getElementById('search_box').value = '';
-    content2.innerHTML = '';
+    if (auth.currentUser.email != null) {
+        let search_box = document.querySelector("#search_box").value;
+        document.getElementById('search_box').value = '';
+        content2.innerHTML = '';
 
-    // grab customized data from firebse
-    db.collection("trade_details").where("email", "==", search_box).get().then((data) => {
-        // adjust this rentals if adjust database
-        // adjust title for field we choose
-        let trades = data.docs;
-        // empty content div
-        content.innerHTML = `
+        // grab customized data from firebse
+        db.collection("trade_details").where("email", "==", search_box).get().then((data) => {
+            // adjust this rentals if adjust database
+            // adjust title for field we choose
+            let trades = data.docs;
+            // empty content div
+            content.innerHTML = `
         <div class="container" id="content">
         <iframe
             src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%235A6986&ctz=America%2FChicago&showTitle=1&title=Open%20Gym%20Schedule&showDate=1&mode=WEEK&showNav=1&showTabs=1&src=am1oYW5zZW43QHdpc2MuZWR1&color=%23039BE5"
@@ -191,44 +192,44 @@ search_button.addEventListener("click", () => {
    </div>
     `;
 
-        // loop through array
-        if (trades.length == 0) {
-            content.innerHTML += `
+            // loop through array
+            if (trades.length == 0) {
+                content.innerHTML += `
             <div class="box mt-5" id="no_trades">
             <h1 class="title is-size-3 has-background-success-light has-text-danger has-text-centered p-1">No Trades Found Matching: ${search_box}</h1>
             <h2 class="title is-size2 has-background-success-light has-text-centered p-1">Did you mean one of these emails?</h2>
             </div>
             `
-            console.log("trying to show");
+                console.log("trying to show");
 
-            let no_trades = document.querySelector("#no_trades");
-            const emails_submitted = new Set();
+                let no_trades = document.querySelector("#no_trades");
+                const emails_submitted = new Set();
 
-            db.collection("trade_details").get().then((data) => {
-                let trade2 = data.docs;
-                trade2.forEach((trade2) => {
-                    emails_submitted.add(trade2.data().email);
-                })
-                console.log(emails_submitted);
-                emails_array = Array.from(emails_submitted);
+                db.collection("trade_details").get().then((data) => {
+                    let trade2 = data.docs;
+                    trade2.forEach((trade2) => {
+                        emails_submitted.add(trade2.data().email);
+                    })
+                    console.log(emails_submitted);
+                    emails_array = Array.from(emails_submitted);
 
-                emails_array.forEach((email) => {
-                    no_trades.innerHTML += `
+                    emails_array.forEach((email) => {
+                        no_trades.innerHTML += `
                                      <p class="has-text-centered has-text-danger"> ${email}</h1>
                                       `
+                    })
                 })
-            })
 
-        } else {
-            content.innerHTML += `
+            } else {
+                content.innerHTML += `
             <div class="box mt-5">
             <h1 class="title is-size-3 has-background-success-light has-text-success has-text-centered">Trades Matching: ${search_box}</h1>
             </div>
             `
-        }
+            }
 
-        trades.forEach((trades) => {
-            content.innerHTML += `
+            trades.forEach((trades) => {
+                content.innerHTML += `
             <div class="box">
             <h1 class="title is-size-3 has-background-success-light p-2"> ${trades.data().league}</h1>
             <p class="has-text-right has-text-danger"> Team Requesting Trade: Team ${trades.data().trading_team}</p>
@@ -238,8 +239,9 @@ search_button.addEventListener("click", () => {
             <p class="has-text-left has-text-success"> Coach Email: ${trades.data().email}</p>    
           </div>    
         `;
+            })
         })
-    })
+    }
 })
 
 
