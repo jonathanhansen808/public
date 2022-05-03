@@ -170,6 +170,7 @@ search_button.addEventListener("click", () => {
     // grab content of input with id search_box
     let search_box = document.querySelector("#search_box").value;
     document.getElementById('search_box').value = '';
+    content2.innerHTML = '';
 
     // grab customized data from firebse
     db.collection("trade_details").where("email", "==", search_box).get().then((data) => {
