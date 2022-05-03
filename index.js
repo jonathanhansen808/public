@@ -10,8 +10,6 @@ function configureNav(user) {
     // check is user is passed and signed in
     if (user) {
         document.querySelector("#welcome_user").innerHTML = `${auth.currentUser.email}`;
-        // console.log(loggedoutlinks);
-
         // show all loggedin links
         loggedinlinks.forEach((link) => {
             link.classList.remove("is-hidden");
@@ -22,11 +20,9 @@ function configureNav(user) {
         })
     } else {
         document.querySelector("#welcome_user").innerHTML = "";
-
         loggedoutlinks.forEach((link) => {
             link.classList.remove("is-hidden");
         })
-
         loggedinlinks.forEach((link) => {
             link.classList.add("is-hidden");
         })
@@ -100,7 +96,6 @@ signup_form.addEventListener("submit", (e) => {
     console.log("form submitted");
 
     // grab the email and password 
-
     let email = document.querySelector("#email").value;
     let password = document.querySelector("#password").value;
 
@@ -109,7 +104,6 @@ signup_form.addEventListener("submit", (e) => {
             console.log("user created successfully");
             // close modal
             signupModal.classList.remove("is-active");
-
             // reset form
             signup_form.reset();
         })
@@ -124,19 +118,16 @@ let signin_form = document.querySelector("#signin_form");
 
 signin_form.addEventListener("submit", (e) => {
     e.preventDefault();
-    // console.log("sign in form submitted");
     // grab the email and password from form
 
     let email = document.querySelector("#email_").value;
     let password = document.querySelector("#password_").value;
     // console.log(email, password);
-
     auth.signInWithEmailAndPassword(email, password)
         .then((userCredentials) => {
             console.log(userCredentials);
             // console.log(userCredentials.user.email + " with the uid " + userCredentials.user.uid + " is logged in!");
             signinModal.classList.remove("is-active");
-
             // reset form 
             signin_form.reset();
 
@@ -145,7 +136,6 @@ signin_form.addEventListener("submit", (e) => {
             let signin_error = document.querySelector("#signin_error");
             signin_error.innerHTML = `<p>${error.message}</p>`;
             // console.log(error.message);
-
         });
 })
 
@@ -173,23 +163,18 @@ auth.onAuthStateChanged((user) => {
 })
 
 // Search Bar 
-// Search bar would be set up for Admin to search through trades
 let search_button = document.querySelector("#search_button");
 // attach click event
 search_button.addEventListener("click", () => {
     // grab content of input with id search_box
-
     let search_box = document.querySelector("#search_box").value;
-    // test it out
-    // console.log(search_box);
+
 
     // grab customized data from firebse
     db.collection("trade_details").where("email", "==", search_box).get().then((data) => {
         // adjust this rentals if adjust database
         // adjust title for field we choose
         let trades = data.docs;
-        console.log("printed below");
-        console.log(search_box);
         // empty content div
         content.innerHTML = `
         <div class="container" id="content">
@@ -207,14 +192,35 @@ search_button.addEventListener("click", () => {
         // loop through array
         if (trades.length == 0) {
             content.innerHTML += `
-            <div class="box mt-5">
-            <h1 class="title is-size-3 has-background-success-light has-text-danger has-text-centered p-2">No Trades Found Matching: ${search_box}</h1>
+            <div class="box mt-5" id="no_trades">
+            <h1 class="title is-size-3 has-background-success-light has-text-danger has-text-centered p-1">No Trades Found Matching: ${search_box}</h1>
+            <h2 class="title is-size2 has-background-success-light has-text-centered p-1">Did you mean one of these emails?</h2>
             </div>
             `
+            console.log("trying to show");
+
+            let no_trades = document.querySelector("#no_trades");
+            const emails_submitted = new Set();
+
+            db.collection("trade_details").get().then((data) => {
+                let trade2 = data.docs;
+                trade2.forEach((trade2) => {
+                    emails_submitted.add(trade2.data().email);
+                })
+                console.log(emails_submitted);
+                emails_array = Array.from(emails_submitted);
+
+                emails_array.forEach((email) => {
+                    no_trades.innerHTML += `
+                                     <p class="has-text-centered has-text-danger"> ${email}</h1>
+                                      `
+                })
+            })
+
         } else {
             content.innerHTML += `
             <div class="box mt-5">
-            <h1 class="title is-size-3 has-background-success-light has-text-success has-text-centered p-2">Trades Matching: ${search_box}</h1>
+            <h1 class="title is-size-3 has-background-success-light has-text-success has-text-centered">Trades Matching: ${search_box}</h1>
             </div>
             `
         }
@@ -227,10 +233,7 @@ search_button.addEventListener("click", () => {
             <p class="has-text-right has-text-danger"> Team Trading With Team ${trades.data().trading_team}: Team ${trades.data().receiving_team}</p>
             <p class="has-text-right has-text-danger"> Time Being Received:  ${trades.data().receiving_time} PM</p>
             <p class="has-text-right has-text-danger"> Time Being Traded: ${trades.data().trading_time} PM</p>
-            <p class="has-text-left has-text-success"> Coach Email: ${trades.data().email}</p>
-            
-            
-            
+            <p class="has-text-left has-text-success"> Coach Email: ${trades.data().email}</p>    
           </div>    
         `;
         })
@@ -347,10 +350,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // display only coach trades
 let show_trade = document.querySelector("#show_trade")
-
 show_trade.addEventListener("click", () => {
     db.collection("trade_details").get().then((data) => {
-
         let trade2 = data.docs;
         // empty content div
         content2.innerHTML = "";
@@ -390,22 +391,18 @@ function addTrade() {
         email: auth.currentUser.email
     }
 
-
-
     db.collection("trade_details").add(trade_details).then(() => {
         console.log('review_added');
         alert("Trade Submitted Successfully");
 
     })
     closeAllModals();
-
 }
 
 function addAvailability() {
     let availability_team = document.querySelector("#availability_team").value;
     let availability_day = document.querySelector("#availability_day").value;
     let availability_time = document.querySelector("#availability_time").value;
-
 
     let availability_details = {
         league: availability_team,
@@ -414,13 +411,8 @@ function addAvailability() {
         email: auth.currentUser.email
     }
 
-
     db.collection("coach_availability").add(availability_details).then(() => {
         console.log('review_added');
         alert("Availability Submitted Successfully");
-
-
     })
 }
-
-// store trade data in database
