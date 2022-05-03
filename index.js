@@ -29,6 +29,7 @@ function configureNav(user) {
     }
 }
 
+let availModal = document.querySelector('#coaches-availability-modal');
 let signupbtn = document.querySelector('#signupbtn');
 let signupModal = document.querySelector('#signup-modal');
 let signupModalBg = document.querySelector('#signup-modalbg');
@@ -169,7 +170,6 @@ search_button.addEventListener("click", () => {
     // grab content of input with id search_box
     let search_box = document.querySelector("#search_box").value;
 
-
     // grab customized data from firebse
     db.collection("trade_details").where("email", "==", search_box).get().then((data) => {
         // adjust this rentals if adjust database
@@ -297,9 +297,10 @@ avail_form.addEventListener("submit", (e) => {
         // console.log(data.id)
 
         // 1. reset the form
+        availModal.classList.remove("is-active");
         avail_form.reset();
         // 2. display success message for the user
-        alert("You successfully submitted your availability");
+        // alert("You successfully submitted your availability");
     })
 })
 
@@ -381,6 +382,7 @@ function addTrade() {
     let receiving_team = document.querySelector("#receiving_team").value;
     let sending_time = document.querySelector("#sending_time").value;
     let receiving_time = document.querySelector("#receiving_time").value;
+    let tradeModal = document.querySelector("#submit_trade_modal");
 
     let trade_details = {
         league: trade_league,
@@ -392,7 +394,7 @@ function addTrade() {
     }
 
     db.collection("trade_details").add(trade_details).then(() => {
-        console.log('review_added');
+        tradeModal.classList.remove("is-active");
         alert("Trade Submitted Successfully");
 
     })
@@ -403,6 +405,8 @@ function addAvailability() {
     let availability_team = document.querySelector("#availability_team").value;
     let availability_day = document.querySelector("#availability_day").value;
     let availability_time = document.querySelector("#availability_time").value;
+    let availModal = document.querySelector('#coaches-availability-modal');
+
 
     let availability_details = {
         league: availability_team,
@@ -412,7 +416,8 @@ function addAvailability() {
     }
 
     db.collection("coach_availability").add(availability_details).then(() => {
-        console.log('review_added');
+        availModal.classList.remove("is-active");
+        avail_form.reset();
         alert("Availability Submitted Successfully");
     })
 }
